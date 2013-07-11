@@ -195,7 +195,8 @@ class Request
     public function getArgument($param = null, $default = false, $clean = true, $clean_flags = ENT_QUOTES, $clean_encoding = 'UTF-8') 
     {
         if (!empty($this->arguments) && array_key_exists($param, $this->arguments)) {
-            return true===$clean ? $this->cleanArg($this->arguments[$param], $clean_flags, $clean_encoding) : $this->arguments[$param];
+            return true===$clean ?
+                $this->cleanArgument($this->arguments[$param], $clean_flags, $clean_encoding) : $this->arguments[$param];
         }
         return $default;
     }
@@ -224,7 +225,8 @@ class Request
             return $this->data;
         } else {
             if (!empty($this->data) && array_key_exists($param, $this->data)) {
-                return true===$clean ? $this->cleanArg($this->data[$param], $clean_flags, $clean_encoding) : $this->data[$param];
+                return true===$clean ? 
+                    $this->cleanArgument($this->data[$param], $clean_flags, $clean_encoding) : $this->data[$param];
             }
             return $default;
         }
@@ -323,9 +325,65 @@ class Request
         return getenv($varname);
     }
 
+    /**
+     * @return string
+     */
+    public static function getUserIp()
+    { 
+        if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR']; 
+        } elseif (isset($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
+    }
+
 // -----------------------
 // Aliases
 // -----------------------
+
+    /**
+     * @return bool
+     */
+    public static function isAjax()
+    {
+        return (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+            (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'));
+    }
+    
+	/**
+     * @return bool
+	 */
+	public function isCli() 
+	{
+	  	return php_sapi_name()=='cli';
+	}
+
+	/**
+     * @return bool
+	 */
+	public function isGet() 
+	{
+	  	return $this->getMethod()==='get';
+	}
+
+	/**
+     * @return bool
+	 */
+	public function isPost() 
+	{
+	  	return $this->getMethod()==='post';
+	}
+
+	/**
+     * @return bool
+	 */
+	public function isPut() 
+	{
+	  	return $this->getMethod()==='put';
+	}
 
     /**
      * @param string $varname
@@ -372,18 +430,19 @@ class Request
     }
 
 // -----------------------
-// Treatments
+// Helper
 // -----------------------
 
     /**
-     * Get the value of a specific argument from current parsed URL
+     * Clean the value taken from request arguments or data
      *
      * @param string $param The parameter name if so, or 'args' to get all parameters values
      * @param const $flags The PHP flags used with htmlentities() (default is ENT_QUOTES)
      * @param string $encoding The encoding used with htmlentities() (default is UTF-8)
+     *
      * @return string The cleaned value
      */
-    public static function cleanArg($arg_value, $flags = ENT_QUOTES, $encoding = 'UTF-8') 
+    public static function cleanArgument($arg_value, $flags = ENT_QUOTES, $encoding = 'UTF-8') 
     {
         if (is_string($arg_value)) {
             $result = stripslashes( htmlentities($arg_value, $flags, $encoding) );

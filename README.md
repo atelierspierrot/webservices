@@ -19,31 +19,44 @@ For instance, consider a custom "MyController" controller with a method "indexAc
     $ curl -i 'http://mydomain.com/webservices/?ws=MyController'
     $ curl -i 'http://mydomain.com/webservices/?ws=MyController&action=custom'
 
+As the "WebServices" depends on them (they must be installed), you can use in your scripts
+all classes from the following third-party packages:
+
+-   the [PHP Library of Les Ateliers Pierrot](https://github.com/atelierspierrot/library), 
+    see <http://docs.ateliers-pierrot.fr/library/> for an inline documentation
+-   the [PHP Patterns package of Les Ateliers Pierrot](https://github.com/atelierspierrot/patterns), 
+    see <http://docs.ateliers-pierrot.fr/patterns/> for an inline documentation.
+
 ### Return status
 
 The `FrontController` is designed to return a status code as an integer following these rules:
 
-- `0` : the default "no error at all" status,
-- `1` : the "unexcpected result" status, which means that no error happened but the result
+-   `0` : the default "no error at all" status,
+-   `1` : the "unexcpected result" status, which means that no error happened but the result
     is not totally the one expected,
-- `2` : the "request error" status, used for not found webservice or method, for bad arguments
+-   `2` : the "request error" status, used for not found webservice or method, for bad arguments
     values etc,
-- `3` : the "treatment error" status, which must be used when the treament has to stop for
+-   `3` : the "treatment error" status, which must be used when the treament has to stop for
     any reason,
-- `-1` : the "internal server error" status, that is used by PHP errors and exceptions.
+-   `-1` : the "internal server error" status, that is used by PHP errors and exceptions.
 
 ### Rewritting
 
 The engine is designed to handle requests written with GET arguments like `key=>value` pairs
-or full URL written as `key/value`. 
+or full URL written as `key/value`.
+
+For instance, these are the same:
+
+    $ curl -i 'http://mydomain.com/webservices/?ws=MyController&action=custom'
+    $ curl -i 'http://mydomain.com/webservices/ws/MyController/action/custom'
 
 
 ## Usage
 
 The default arguments used by the front controller (GET or POST) are:
 
-- `ws` : the chosen web-service ; this must be a classname of a controller,
-- `action` : the action to execute from the web-service ; this must be a method of the controller
+-   `ws` : the chosen web-service ; this must be a classname of a controller,
+-   `action` : the action to execute from the web-service ; this must be a method of the controller
     called `[action]Action()` ; default action is `index`
 
 By default, the response is in JSON format and contains at the minimum an entry `status` that is

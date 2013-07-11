@@ -8,6 +8,8 @@
  */
 namespace WebServices;
 
+use Library\Converter\Html2Text;
+
 /**
  * The global response class
  *
@@ -44,6 +46,16 @@ class Response
 	 * The content type
 	 */
 	protected $content_type = 'application/json';
+
+	/**
+	 */
+	static $content_types = array(
+		'html' => 'text/html',
+		'text' => 'text/plain',
+		'css' => 'text/css',
+		'xml' => 'application/xml',
+		'javascript' => 'application/x-javascript',
+	);
 
 	/**
 	 * Constructor : defines the current URL and gets the routes
@@ -175,6 +187,14 @@ class Response
 		return $this->contents;
 	}
 
+	/**
+	 */
+	public function setContentType( $type ) 
+	{
+		if (array_key_exists($type, self::$content_types))
+			$this->content_type = self::$content_types[ $type ];
+	}
+
 // ----------------------
 // Send
 // ----------------------
@@ -192,15 +212,64 @@ class Response
 
 		if ($this->content_type=='application/json') {
         	$response = json_encode((array) $this->contents);
+		} elseif ($this->content_type=='text/plain') {
+			$_escaped_output = strip_tags((string) $this->contents);
+			if ($_escaped_output != (string) $this->contents) {
+				if (preg_match('/(.*)<body(.*)</body>/i', (string) $this->contents, $matches)) {
+					$_output = $matches[0];
+				} else {
+					$_output = (string) $this->contents;
+				}
+				$response = Html2Text::convert($_output);
+			}
 		} else {
     		$response = (string) $this->contents;
 		}
+
         if ($return_string) {
             return $response;
         } else {
             echo $response;
     		exit("\n");
         }
+	}
+
+	/**
+	 * Force device to download a file
+	 */
+	public function download($file = null, $type = null, $file_name = null) 
+	{
+		if (!empty($file) && @file_exists($file)) {
+			if (is_null($file_name)) 
+			  $file_name = end( explode('/', $file) );
+			self::header("Content-disposition: attachment; filename=".$file_name);
+			self::header("Content-Type: application/force-download");
+			self::header("Content-Transfer-Encoding: $type\n");
+			self::header("Content-Length: ".filesize($file));
+			self::header("Pragma: no-cache");
+			self::header("Cache-Control: must-revalidate, post-check=0, pre-check=0, public");
+			self::header("Expires: 0"); 
+			readfile( $file );
+			exit;
+		}
+		return;
+	}
+
+	/**
+	 * Flush (display) a file content
+	 */
+	public function flush($file_content = null, $type = null) 
+	{
+		if (!empty($file_content)) {
+			if (empty($type)) {
+				$finfo = new \finfo();
+				$type = $finfo->buffer($file_content, FILEINFO_MIME);
+	    	}
+			self::header("Content-Type: $type");
+			echo $file_content;
+			exit;
+		}
+		return;
 	}
 
 	/**
