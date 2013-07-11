@@ -28,6 +28,8 @@ if (file_exists($a = __DIR__.'/../../../autoload.php')) {
 $options = array(
     'tmp_directory' => __DIR__.'/tmp',
     'log_directory' => __DIR__.'/tmp/logs',
+    'enable_logging' => true,
+    'enable_url_rewrite' => true,
 );
 
 // distribute request

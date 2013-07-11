@@ -8,29 +8,69 @@
  */
 namespace WebServices;
 
+use \ErrorException as BaseErrorException;
+
+use Library\Logger;
+
 /**
- * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>
+ * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */
-class ErrorException extends \WebServices\Exception
+class ErrorException extends BaseErrorException
 {
 
-	/**
-	 * Construction of the exception - a message is needed (1st argument)
-	 *
-	 * @param string $message The exception message
-	 * @param numeric $code The exception code
-	 * @param misc $previous The previous exception if so
-	 */
-    public function __construct($message = '', $code = 0, Exception $previous = null)
-    {
-		parent::__construct($message, $code, $previous);
-        $this->webservices = FrontController::getInstance();
+    /**
+     * @var \WebServices\FrontController
+     */
+    protected $webservices;
 
-		$string = $this->getMessage();
+    /**
+     * @param string $message
+     * @param int $code
+     * @param int $severity
+     * @param string $filename
+     * @param int $lineno
+     * @param object $previous \Exception
+     */
+    public function __construct($message = '', $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, Exception $previous = null)
+    {
+        parent::__construct($message, $code, $severity, $filename, $lineno, $previous);
+        $this->webservices = FrontController::getInstance();
         $this->webservices
             ->setStatus(FrontController::STATUS_INTERNAL_ERROR)
-            ->setMessage(!empty($string) ? $string : null)
             ->getResponse()->setStatus(Response::STATUS_ERROR);
+    }
+
+    /**
+     * Force the error display
+     * @return void
+     */
+    public function __toString()
+    {
+        return $this->render();        
+    }
+
+    /**
+     * Force the error display and log it
+     * @return void
+     */
+    public function render()
+    {
+        $exception_context = array(
+            'type'=> get_called_class(),
+            'code'=> $this->getCode() . ' [severity: ' . $this->getSeverity() . ']',
+            'message'=>$this->getMessage(),
+            'line'=>$this->getLine(),
+            'file'=>$this->getFile(),
+        );
+        $this->webservices->log(
+            $this->webservices->getOption('error_log_mask'), $exception_context, Logger::CRITICAL
+        );
+        $this->webservices->log(
+            $this->getTraceAsString(), array(), Logger::CRITICAL
+        );
+        $this->webservices->getResponse()
+            ->addContent('error', $exception_context);
+        $this->webservices->display();
     }
 
 }

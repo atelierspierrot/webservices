@@ -19,12 +19,28 @@ class DefaultController extends AbstractController
 
     public function indexAction()
     {
-        $this->kernel->addContent('yo', 'kh hlqksjdfh');
     }
 
     public function helloworldAction()
     {
-		$name = $this->kernel->getRequest()->getArg('name', 'Anonymous');
+        $this->kernel
+            ->setStatus(FrontController::STATUS_OK)
+            ->setMessage('Hello World ;)');
+    }
+
+    public function testGetAction()
+    {
+        $name = $this->kernel->getRequest()->getArgument('name', 'Anonymous');
+        $this->kernel
+            ->setStatus(FrontController::STATUS_OK)
+            ->setMessage(
+                sprintf('Hello %s ;)', $name)
+            );
+    }
+
+    public function testPostAction()
+    {
+        $name = $this->kernel->getRequest()->getData('name', 'Anonymous');
         $this->kernel
             ->setStatus(FrontController::STATUS_OK)
             ->setMessage(
