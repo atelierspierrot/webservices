@@ -24,9 +24,15 @@ if (file_exists($a = __DIR__.'/../../../autoload.php')) {
         ." (see: http://getcomposer.org/doc/00-intro.md#using-composer)!") );
 }
 
+// user options
+$options = array(
+    'tmp_directory' => __DIR__.'/tmp',
+    'log_directory' => __DIR__.'/tmp/logs',
+);
+
 // distribute request
 WebServices\FrontController
-    ::create(new WebServices\Request, new WebServices\Response)
+    ::create(new WebServices\Request, new WebServices\Response, $options)
         ->distribute();
 
 // or exit
