@@ -10,6 +10,12 @@ namespace WebServices\Controller;
 
 use WebServices\FrontController;
 
+use WebServices\Exception,
+    WebServices\ErrorException,
+    WebServices\NotFoundException,
+    WebServices\BadRequestException,
+    WebServices\TreatmentException;
+
 class DefaultController extends AbstractController
 {
 
@@ -19,6 +25,7 @@ class DefaultController extends AbstractController
 
     public function indexAction()
     {
+        fopen();
     }
 
     public function helloworldAction()
@@ -30,9 +37,15 @@ class DefaultController extends AbstractController
 
     public function testGetAction()
     {
+        $status = FrontController::STATUS_OK;
         $name = $this->kernel->getRequest()->getArgument('name', 'Anonymous');
+        $rand = $this->kernel->getRequest()->getArgument('random', 'false');
+        if ($rand && $rand=='true') {
+            $name .= '_' . time();
+            $status = FrontController::STATUS_UNEXPECTED_RESULT;
+        }
         $this->kernel
-            ->setStatus(FrontController::STATUS_OK)
+            ->setStatus($status)
             ->setMessage(
                 sprintf('Hello %s ;)', $name)
             );
@@ -40,12 +53,42 @@ class DefaultController extends AbstractController
 
     public function testPostAction()
     {
+        $status = FrontController::STATUS_OK;
         $name = $this->kernel->getRequest()->getData('name', 'Anonymous');
+        $rand = $this->kernel->getRequest()->getArgument('random', 'false');
+        if ($rand && $rand=='true') {
+            $name .= '_' . time();
+            $status = FrontController::STATUS_UNEXPECTED_RESULT;
+        }
         $this->kernel
-            ->setStatus(FrontController::STATUS_OK)
+            ->setStatus($status)
             ->setMessage(
                 sprintf('Hello %s ;)', $name)
             );
+    }
+
+    public function testNotFoundAction()
+    {
+        // something was not found ...
+        throw new NotFoundException('Test of not found error');
+    }
+
+    public function testBadRequestAction()
+    {
+        // something was not understood in the request or is missing ...
+        throw new BadRequestException('Test of bad request');
+    }
+
+    public function testTreatmentErrorAction()
+    {
+        // something causes an error during data treatment ...
+        throw new TreatmentException('Test of treatment error');
+    }
+
+    public function testInternalErrorAction()
+    {
+        // something went really wrong ...
+        throw new ErrorException('Test of internal server error');
     }
 
 }

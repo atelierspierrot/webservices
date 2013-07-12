@@ -9,7 +9,7 @@ A PHP engine to manage web-services easily.
 ### The basis
 
 The engine is designed as a sort of "MVC" to handle new requests by developing your Controllers
-easily. The only thing to do to write a new webserice is to create a new PHP class extending
+easily. The only thing to do to write a new webservice is to create a new PHP class extending
 the `\WebServices\Controller\AbstrsactController` abstract class. As explained in next section,
 you have to declare the actions of your controller by naming them like `dosomethingAction()`. 
 

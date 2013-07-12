@@ -37,7 +37,7 @@ $webservice_domain = str_replace('demo', 'www', \Library\Helper\Url::getRequestU
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Test & documentation of PHP "Library" package</title>
+    <title>Test & documentation of PHP "WebServices" package</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="assets/html5boilerplate/css/normalize.css" />
@@ -52,11 +52,11 @@ $webservice_domain = str_replace('demo', 'www', \Library\Helper\Url::getRequestU
 
     <header id="top" role="banner">
         <hgroup>
-            <h1>Tests of PHP <em>Library</em> package</h1>
-            <h2 class="slogan">The PHP library package of Les Ateliers Pierrot.</h2>
+            <h1>Tests of PHP <em>WebServices</em> package</h1>
+            <h2 class="slogan">A PHP engine to manage web-services easily.</h2>
         </hgroup>
         <div class="hat">
-            <p>These pages show and demonstrate the use and functionality of the <a href="https://github.com/atelierspierrot/library">atelierspierrot/library</a> PHP package you just downloaded.</p>
+            <p>These pages show and demonstrate the use and functionality of the <a href="https://github.com/atelierspierrot/webservices">atelierspierrot/webservices</a> PHP package you just downloaded.</p>
         </div>
     </header>
 
@@ -67,7 +67,7 @@ $webservice_domain = str_replace('demo', 'www', \Library\Helper\Url::getRequestU
         </ul>
 
         <div class="info">
-            <p><a href="https://github.com/atelierspierrot/library">See online on GitHub</a></p>
+            <p><a href="https://github.com/atelierspierrot/webservices">See online on GitHub</a></p>
             <p class="comment">The sources of this plugin are hosted on <a href="http://github.com">GitHub</a>. To follow sources updates, report a bug or read opened bug tickets and any other information, please see the GitHub website above.</p>
         </div>
 
@@ -88,13 +88,31 @@ $webservice_domain = str_replace('demo', 'www', \Library\Helper\Url::getRequestU
 
         <article>
 
+    <h3>Test of success requests</h3>
+
     <ul>
         <li><a href="javascript:runTest('action=helloworld');">test "hello world"</a></li>
-        <li><a href="javascript:runTest('action=abcd');">test sending a 404 error</a></li>
         <li><a href="javascript:runTest('action=testGet');">test with GET method</a></li>
         <li><a href="javascript:runTest('action=testGet&name=Pierre');">test with GET method and name "Pierre"</a></li>
         <li><a href="javascript:runTest('action=testPost');">test with POST method</a></li>
         <li><a href="javascript:runTest('action=testPost', 'name=Pierre');">test with POST method and name "Pierre" data</a></li>
+    </ul>
+    <p><strong>Same four last tests with random:</strong></p>
+    <ul>
+        <li><a href="javascript:runTest('action=testGet&random=true');">test with GET method</a></li>
+        <li><a href="javascript:runTest('action=testGet&name=Pierre&random=true');">test with GET method and name "Pierre"</a></li>
+        <li><a href="javascript:runTest('action=testPost&random=true');">test with POST method</a></li>
+        <li><a href="javascript:runTest('action=testPost&random=true', 'name=Pierre');">test with POST method and name "Pierre" data</a></li>
+    </ul>
+    
+    
+    <h3>Test of failure requests</h3>
+
+    <ul>
+        <li><a href="javascript:runTest('action=abcd');">test sending a 404 error</a></li>
+        <li><a href="javascript:runTest('action=testBadRequest');">test of a bad request</a></li>
+        <li><a href="javascript:runTest('action=testTreatmentError');">test of a treatment error</a></li>
+        <li><a href="javascript:runTest('action=testInternalError');">test of an internal server error</a></li>
     </ul>
     
         </article>
@@ -105,7 +123,7 @@ $webservice_domain = str_replace('demo', 'www', \Library\Helper\Url::getRequestU
             This page is <a href="" title="Check now online" id="html_validation">HTML5</a> & <a href="" title="Check now online" id="css_validation">CSS3</a> valid.
         </div>
         <div class="credits float-right">
-            <a href="https://github.com/atelierspierrot/internationalization">atelierspierrot/internationalization</a> package by <a href="https://github.com/PieroWbmstr">Piero Wbmstr</a> under <a href="http://opensource.org/licenses/GPL-3.0">GNU GPL v.3</a> license.
+            <a href="https://github.com/atelierspierrot/webservices">atelierspierrot/webservices</a> package by <a href="https://github.com/PieroWbmstr">Piero Wbmstr</a> under <a href="http://opensource.org/licenses/GPL-3.0">GNU GPL v.3</a> license.
         </div>
     </footer>
 
@@ -156,24 +174,24 @@ function runTest(arguments, data)
         data: data
     })
     .done(function(data, textStatus, jqXHR) {
-        if(console && console.log) {
-            console.log("Receiving:", data);
-        }
-        var response = "Receiving webservice response with status "
-            + data.status + " and message '" + data.message + "'";
-
-        writeInConsole(response);
+        ajaxReturn(data);
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
         data = $.parseJSON(jqXHR.responseText);
-        if(console && console.log) {
-            console.log("Receiving:", data);
-        }
-        var response = "<span class=\"error\">Receiving webservice response with status "
-            + data.status + " and message '" + data.message + "'</span>";
-
-        writeInConsole(response);
+        ajaxReturn(data, "error");
     });
+}
+
+// treat ajax return
+function ajaxReturn(data, _class)
+{
+    if(console && console.log) {
+        console.log("Receiving:", data);
+    }
+    var response = "<span class=\"" + _class + "\">Receiving webservice response with status "
+        + data.status + " and message '" + data.message + "'</span>";
+
+    writeInConsole(response);
 }
 
 // write a string in page's console

@@ -11,7 +11,7 @@ namespace WebServices;
 /**
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */
-class BadRequestException extends \WebServices\Exception
+class TreatmentException extends \WebServices\Exception
 {
 
     /**
@@ -23,12 +23,12 @@ class BadRequestException extends \WebServices\Exception
      */
     public function __construct($message = '', $code = 0, Exception $previous = null)
     {
-        if (empty($message)) $message = 'Bad request';
+        if (empty($message)) $message = 'Treatment error';
         parent::__construct($message, $code, $previous);
         $this->webservices
-            ->setStatus(FrontController::STATUS_REQUEST_ERROR)
+            ->setStatus(FrontController::STATUS_TREATMENT_ERROR)
             ->setMessage($this->getMessage())
-            ->getResponse()->setStatus(Response::STATUS_BAD_REQUEST);
+            ->getResponse()->setStatus(Response::STATUS_UNPROCESSABLE_ENTITY);
     }
 
 }
