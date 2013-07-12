@@ -165,6 +165,20 @@ class FrontController
             }
             $request = $this->getRequest();
             $get = $request->getArguments();
+
+var_export($query);
+echo '<br />'.PHP_EOL;
+var_export($_GET);
+echo '<br />'.PHP_EOL;
+var_export($args);
+echo '<br />'.PHP_EOL;
+var_export($get);
+echo '<br />'.PHP_EOL;
+var_export(array_merge($get, $args));
+echo '<br />'.PHP_EOL;
+var_export($_SERVER['PHP_AUTH_USER']);
+exit('yo');
+
             $request->setArguments(
                 !is_null($get) ? array_merge($get, $args) : $args
             );

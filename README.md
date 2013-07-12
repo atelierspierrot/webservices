@@ -45,7 +45,7 @@ The `FrontController` is designed to return a status code as an integer followin
 The engine is designed to handle requests written with GET arguments like `key=>value` pairs
 or full URL written as `key/value`.
 
-For instance, these are the same:
+For instance, these followings are equivalent:
 
     $ curl -i 'http://mydomain.com/webservices/?ws=MyController&action=custom'
     $ curl -i 'http://mydomain.com/webservices/ws/MyController/action/custom'

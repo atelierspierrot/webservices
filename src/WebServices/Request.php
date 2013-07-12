@@ -18,6 +18,18 @@ class Request
 {
 
     /**
+     * Classic URL with arguments as "[script.php](?/&)var=val" pairs
+     * @var int
+     */
+    const NO_REWRITE = 0;
+
+    /**
+     * Allow a query string written as "[script.php]/var/val"
+     * @var int
+     */
+    const REWRITE_SEGMENTS_QUERY = 1;
+
+    /**
      * The URL to work on
      * @var string
      * @see \Library\Helper\Url::getRequestUrl()
