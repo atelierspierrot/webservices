@@ -19,6 +19,10 @@ For instance, consider a custom "MyController" controller with a method "indexAc
     $ curl -i 'http://mydomain.com/webservices/?ws=MyController'
     $ curl -i 'http://mydomain.com/webservices/?ws=MyController&action=custom'
 
+The response is a JSON table containing at least a `status` and a `message` entry:
+
+    {"status":0,"message":"Hello World !"}
+
 As the "WebServices" depends on them (they must be installed), you can use in your scripts
 all classes from the following third-party packages:
 
@@ -49,6 +53,7 @@ For instance, these followings are equivalent:
 
     $ curl -i 'http://mydomain.com/webservices/?ws=MyController&action=custom'
     $ curl -i 'http://mydomain.com/webservices/ws/MyController/action/custom'
+
 
 
 ## Usage

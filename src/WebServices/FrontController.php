@@ -151,38 +151,18 @@ class FrontController
         );
         if (!is_null($request)) $this->setRequest($request);
         if (!is_null($response)) $this->setResponse($response);
+        $this->getResponse()->setContentType('json');
         if ($this->getOption('enable_url_rewrite')===true) {
-            $query = $_SERVER['QUERY_STRING'];
-            $args = array();
-            $index = null;
-            foreach (explode('/', $query) as $count=>$part) {
-                if (is_null($index)) {
-                    $index = $part;
-                } else {
-                    $args[$index] = $part;
-                    $index = null;
-                }
-            }
-            $request = $this->getRequest();
-            $get = $request->getArguments();
-
-var_export($query);
-echo '<br />'.PHP_EOL;
-var_export($_GET);
-echo '<br />'.PHP_EOL;
-var_export($args);
-echo '<br />'.PHP_EOL;
-var_export($get);
-echo '<br />'.PHP_EOL;
-var_export(array_merge($get, $args));
-echo '<br />'.PHP_EOL;
-var_export($_SERVER['PHP_AUTH_USER']);
-exit('yo');
-
-            $request->setArguments(
-                !is_null($get) ? array_merge($get, $args) : $args
-            );
+            $this->getRequest()
+                ->setFlag(Request::REWRITE_SEGMENTS_QUERY)
+                ->setArguments($this->getRequest()->getArguments())
+                ;
         }
+/*
+echo '<pre>';
+var_export($this->getRequest());
+exit('yo');
+*/
     }
 
     /**
