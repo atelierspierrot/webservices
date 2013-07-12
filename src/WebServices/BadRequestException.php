@@ -8,6 +8,8 @@
  */
 namespace WebServices;
 
+use Library\HttpFundamental\Response;
+
 /**
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */

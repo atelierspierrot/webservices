@@ -15,6 +15,9 @@ use Library\Helper\Url as UrlHelper,
     Library\Helper\Directory as DirectoryHelper,
     Library\Logger;
 
+use Library\HttpFundamental\Request,
+    Library\HttpFundamental\Response;
+
 class FrontController
     extends AbstractSingleton implements StaticCreatorInterface
 {

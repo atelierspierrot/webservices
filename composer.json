@@ -1,10 +1,10 @@
 {
-    "name": "atelierspierrot/templatengine",
-    "type": "library-assets",
-    "description": "A PHP package to build HTML5 views (based on HTML5 Boilerplate layouts).",
-    "keywords": [ "php", "template", "boilerplate" ],
-    "homepage": "https://github.com/atelierspierrot/templatengine",
-    "version": "0.0.11",
+    "name": "atelierspierrot/webservices",
+    "type": "library",
+    "description": "A PHP engine to manage web-services easily",
+    "keywords": [ "php", "webservices", "engine" ],
+    "homepage": "http://github.com/atelierspierrot/webservices",
+    "version": "0.0.1",
     "license": "GPL-3.0",
     "authors": [{
         "name": "Les Ateliers Pierrot & contributors",
@@ -18,7 +18,7 @@
     "require": {
         "php": ">=5.3.0",
         "atelierspierrot/patterns": "dev-master",
-        "atelierspierrot/library": "dev-master",
+        "atelierspierrot/library": "dev-wip",
         "psr/log": "dev-master"
     },
     "require-dev": {

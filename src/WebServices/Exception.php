@@ -10,7 +10,8 @@ namespace WebServices;
 
 use \Exception as BaseException;
 
-use Library\Logger;
+use Library\HttpFundamental\Response,
+    Library\Logger;
 
 /**
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>

@@ -43,7 +43,7 @@ function WebServicesErrorHandler($errno, $errstr, $errfile, $errline)
 
 // distribute request
 WebServices\FrontController
-    ::create(new WebServices\Request, new WebServices\Response, $options)
+    ::create(new Library\HttpFundamental\Request, new Library\HttpFundamental\Response, $options)
         ->distribute();
 
 // or exit
