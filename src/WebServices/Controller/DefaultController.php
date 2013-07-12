@@ -16,7 +16,8 @@ use WebServices\Exception,
     WebServices\BadRequestException,
     WebServices\TreatmentException;
 
-use Library\HttpFundamental\Response;
+use Library\HttpFundamental\Request,
+    Library\HttpFundamental\Response;
 
 class DefaultController extends AbstractController
 {
