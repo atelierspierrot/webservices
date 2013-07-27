@@ -35,7 +35,7 @@ $options = array(
 // special PHP settings
 function WebServicesErrorHandler($errno, $errstr, $errfile, $errline)
 {
-    throw new WebServices\ErrorException($errstr, $errno, 1, $errfile, $errline);
+    throw new \WebServices\ErrorException($errstr, $errno, 1, $errfile, $errline);
     return true;
 }
 //set_error_handler('WebServicesErrorHandler');

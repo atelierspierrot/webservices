@@ -28,7 +28,7 @@ class DefaultController extends AbstractController
 
     public function indexAction()
     {
-        fopen();
+//        fopen();
     }
 
     public function helloworldAction()
