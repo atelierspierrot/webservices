@@ -23,6 +23,9 @@ composer.lock
 # user defined files
 user/*
 
+# app specific files
+var/*
+
 # the external packages installed by Composer, Template Engine or others
 vendor/*
 bin/vendor/*

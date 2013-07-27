@@ -12,12 +12,6 @@ if (file_exists($a = __DIR__.'/../../../autoload.php')) {
 } elseif (file_exists($b = __DIR__.'/../vendor/autoload.php')) {
     require_once $b;
 
-// else try to register `WebServices` namespace
-} elseif (file_exists($c = __DIR__.'/../src/SplClassLoader.php')) {
-    require_once $c;
-    $classLoader = new SplClassLoader('WebServices', __DIR__.'/../src');
-    $classLoader->register();
-
 // else error, classes can't be found
 } else {
     die( json_encode("You need to run Composer on the project to build dependencies and auto-loading"
@@ -26,10 +20,20 @@ if (file_exists($a = __DIR__.'/../../../autoload.php')) {
 
 // user options
 $options = array(
+    // the HTTP accessible temporary files
     'tmp_directory' => __DIR__.'/tmp',
-    'log_directory' => __DIR__.'/tmp/logs',
+    // the HTTP NON-accessible temporary files, must be out of your document root
+    'var_directory' => __DIR__.'/../var',
+    // the log files, must be out of your document root (here in 'var/')
+    'log_directory' => __DIR__.'/../var/logs',
+    // enable full logging
     'enable_logging' => true,
+    // enable the URL rewriting : "http://.../var/val" = "http://.../?var=val"
     'enable_url_rewrite' => true,
+    // write your custom controllers here like "route => classname" pairs
+    // then you can call "http://.../?ws=route" to access them
+    'controllers_mapping' => array(
+    ),
 );
 
 // special PHP settings

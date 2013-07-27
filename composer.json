@@ -4,7 +4,7 @@
     "description": "A PHP engine to manage web-services easily",
     "keywords": [ "php", "webservices", "engine" ],
     "homepage": "http://github.com/atelierspierrot/webservices",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "GPL-3.0",
     "authors": [{
         "name": "Les Ateliers Pierrot & contributors",

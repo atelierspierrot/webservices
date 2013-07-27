@@ -112,10 +112,18 @@ class FrontController
      */
     protected function extendOptions(array $user_options = array())
     {
+        if (!array_key_exists('controllers_mapping', $user_options) || !is_array($user_options['controllers_mapping'])) {
+            $user_options['controllers_mapping'] = array();
+        }
         if (!array_key_exists('tmp_directory', $user_options)) {
             $ini_path = sys_get_temp_dir();
             $user_options['tmp_directory'] = 
                 !empty($ini_path) ? $ini_path : __DIR__.'/../tmp';
+        }
+        if (!array_key_exists('var_directory', $user_options)) {
+            $ini_path = sys_get_temp_dir();
+            $user_options['var_directory'] = 
+                !empty($ini_path) ? $ini_path : __DIR__.'/../var';
         }
         if (!array_key_exists('log_directory', $user_options)) {
             $ini_path = ini_get('error_log');
@@ -146,7 +154,7 @@ class FrontController
         $this->setUserOptions(
             $this->extendOptions($user_options)
         );
-        foreach (array('tmp_directory', 'log_directory') as $_dir) {
+        foreach (array('tmp_directory', 'var_directory', 'log_directory') as $_dir) {
             DirectoryHelper::ensureExists($this->getOption($_dir));
         }
         $this->setLogger(
@@ -212,12 +220,12 @@ exit('yo');
     public function distribute()
     {
         $this->log('[BEGIN] Handling request {url}');
-        $this->callController(
-            $this->getRequest()->getPostOrGet('ws', 'DefaultController')
-        );
-        $this->callControllerMethod(
-            $this->getRequest()->getPostOrGet('action', 'index')
-        );
+        $ctrl = $this->getRequest()->getPostOrGet('ws');
+        if (empty($ctrl)) $ctrl = 'DefaultController';
+        $this->callController($ctrl);
+        $act = $this->getRequest()->getPostOrGet('action');
+        if (empty($act)) $act = 'index';
+        $this->callControllerMethod($act);
         $this->log('[END] Handling request {url}');
         $this->display();
     }
@@ -257,6 +265,10 @@ exit('yo');
      */
     public function callController($name = 'DefaultController')
     {
+        $map = $this->getOption('controllers_mapping');
+        if (array_key_exists($name, $map)) {
+            $name = $map[$name];
+        }
         if (class_exists($name)) {
             $this->setController(new $name($this));
             return true;
