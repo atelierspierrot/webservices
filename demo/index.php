@@ -89,7 +89,6 @@ $webservice_domain = str_replace('demo', 'www', \Library\Helper\Url::getRequestU
         <article>
 
     <h3>Test of success requests</h3>
-
     <ul>
         <li><a href="javascript:runTest('action=helloworld');">test "hello world"</a></li>
         <li><a href="javascript:runTest('action=testGet');">test with GET method</a></li>
@@ -107,7 +106,6 @@ $webservice_domain = str_replace('demo', 'www', \Library\Helper\Url::getRequestU
     
     
     <h3>Test of failure requests</h3>
-
     <ul>
         <li><a href="javascript:runTest('action=abcd');">test sending a 404 error</a></li>
         <li><a href="javascript:runTest('action=testBadRequest');">test of a bad request</a></li>
@@ -115,6 +113,12 @@ $webservice_domain = str_replace('demo', 'www', \Library\Helper\Url::getRequestU
         <li><a href="javascript:runTest('action=testInternalError');">test of an internal server error</a></li>
     </ul>
     
+    <h3>Test of "usage" call</h3>
+    <p>The "usage" method always returns, if available, a presentation of the webservice in plain HTML, generated from <a href="http://github.com/atelierspierrot/markdown-extended">Markdown Extended</a> syntax.</p>
+    <ul>
+        <li><a href="<?php echo $webservice_domain; ?>?action=usage">test of test controller "usage"</a></li>
+    </ul>
+
         </article>
     </div>
 

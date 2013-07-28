@@ -22,13 +22,21 @@ use Library\HttpFundamental\Request,
 class DefaultController extends AbstractController
 {
 
+    protected function init()
+    {
+        $this->usage_filepath = __DIR__.'/DefaultController.md.php';
+    }
+
 // ------------------------
 // Actions
 // ------------------------
 
     public function indexAction()
     {
-//        fopen();
+//        fopen(); // test the internal error handler
+        $this->kernel
+            ->setStatus(FrontController::STATUS_OK)
+            ->setMessage('Nothing to do');
     }
 
     public function helloworldAction()
