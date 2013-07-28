@@ -22,6 +22,15 @@ use Library\HttpFundamental\Request,
 class DefaultController extends AbstractController
 {
 
+    /**
+     * @param object WebServices\FrontController
+     */
+    public function __construct(FrontController $kernel)
+    {
+        parent::__construct($kernel);
+        $this->usage_filepath = __DIR__.'/DefaultController.md.php';
+    }
+
 // ------------------------
 // Actions
 // ------------------------

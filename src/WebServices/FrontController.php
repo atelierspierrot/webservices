@@ -225,7 +225,11 @@ exit('yo');
         $this->callController($ctrl);
         $act = $this->getRequest()->getPostOrGet('action');
         if (empty($act)) $act = 'index';
-        $this->callControllerMethod($act);
+        if ($act==='usage') {
+            $this->getControllerUsage();
+        } else {
+            $this->callControllerMethod($act);
+        }
         $this->log('[END] Handling request {url}');
         $this->display();
     }
@@ -299,6 +303,45 @@ exit('yo');
         }
         throw new NotFoundException(sprintf("Unknown action '%s' in webservice '%s'!",
             $method, get_class($this->getController())));
+    }
+
+    /**
+     * @return void
+     *
+     * @throws \WebServices\NotFoundException if the `$usage_filepath` property is set in the controller but
+     *          the file can't be found
+     */
+    public function getControllerUsage()
+    {
+        $ctrl = $this->getController();
+        if (!empty($ctrl->usage_filepath)) {
+            if (file_exists($ctrl->usage_filepath)) {
+                if (substr($ctrl->usage_filepath, -3)==='.md') {
+                    \MarkdownExtended\MarkdownExtended::transformSource($ctrl->usage_filepath);
+                    $ctt = \MarkdownExtended\MarkdownExtended::getFullContent();
+
+                } elseif (substr($ctrl->usage_filepath, -7)==='.md.php') {
+                    ob_start();
+                    extract(array(
+                        'webservice_url'=>str_replace('demo', 'www', \Library\Helper\Url::getRequestUrl(false, true))
+                    ), EXTR_OVERWRITE);
+                    include $ctrl->usage_filepath;
+                    $file_ctt = ob_get_contents();
+                    ob_end_clean();
+                    \MarkdownExtended\MarkdownExtended::transformString($file_ctt);
+                    $ctt = \MarkdownExtended\MarkdownExtended::getFullContent();
+
+                } else {
+                    $ctt = @file_get_contents($ctrl->usage_filepath);
+                }
+
+                echo $ctt;
+                exit;
+            } else {
+                throw new NotFoundException(sprintf("Usage file '%s' of webservice '%s' not found!",
+                    $ctrl->usage_filepath, get_class($this->getController())));
+            }
+        }
     }
 
 // ------------------------
