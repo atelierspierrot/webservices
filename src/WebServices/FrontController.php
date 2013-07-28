@@ -320,7 +320,10 @@ exit('yo');
                     \MarkdownExtended\MarkdownExtended::transformSource($ctrl->usage_filepath);
                     $ctt = \MarkdownExtended\MarkdownExtended::getFullContent();
 
-                } elseif (substr($ctrl->usage_filepath, -7)==='.md.php') {
+                } elseif (
+                    substr($ctrl->usage_filepath, -7)==='.md.php' ||
+                    substr($ctrl->usage_filepath, -4)==='.php'
+                ) {
                     ob_start();
                     extract(array(
                         'webservice_url'=>str_replace('demo', 'www', \Library\Helper\Url::getRequestUrl(false, true))
@@ -328,8 +331,12 @@ exit('yo');
                     include $ctrl->usage_filepath;
                     $file_ctt = ob_get_contents();
                     ob_end_clean();
-                    \MarkdownExtended\MarkdownExtended::transformString($file_ctt);
-                    $ctt = \MarkdownExtended\MarkdownExtended::getFullContent();
+                    if (substr($ctrl->usage_filepath, -7)==='.md.php') {
+                        \MarkdownExtended\MarkdownExtended::transformString($file_ctt);
+                        $ctt = \MarkdownExtended\MarkdownExtended::getFullContent();
+                    } else {
+                        $ctt = $file_ctt;
+                    }
 
                 } else {
                     $ctt = @file_get_contents($ctrl->usage_filepath);

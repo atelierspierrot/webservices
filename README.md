@@ -132,15 +132,28 @@ That's it!
 #### Key concepts
 
 The only thing to do to write a new webservice is to create a new
-PHP class extending the `\WebServices\Controller\AbstrsactController` abstract class. As
-explained in next section, you have to declare the actions of your controller by naming
+PHP class extending the `\WebServices\Controller\AbstractController` abstract class. As
+explained in previous section, you have to declare the actions of your controller by naming
 them like `dosomethingAction()`. 
 
-For instance, consider a custom "MyController" controller with a method "indexAction()" and
+For instance, consider a custom "MyController" controller with methods "indexAction()" and
 "customAction()". You will call each of these actions with requests:
 
     $ curl -i 'http://mydomain.com/webservices/?ws=MyController'
     $ curl -i 'http://mydomain.com/webservices/?ws=MyController&action=custom'
+
+#### Write a "usage" information for a custom controller
+
+Each controller can propose a "usage" string information defining the `$usage_filepath` property
+on the absolute accessible path of a usage file. The content can be parsed by the 
+[Markdown Extended](http://github.com/atelierspierrot/markdown-extended) parser if it is
+named with a `.md` extension.
+
+As it can be useful in some cases, you can write your usage contents using the PHP variable
+`$webservice_url`, which will be the current base URL called. To do so, you MUST use a 
+final extension `.php` (`.md.php` to use the Markdown parser).
+
+The "usage" string is displayed fo each controller calling the `usage` action.
 
 #### Referencing your custom controllers
 
