@@ -34,7 +34,13 @@ abstract class AbstractController
     public function __construct(FrontController $kernel)
     {
         $this->kernel = $kernel;
+        $this->init();
     }
+
+    /**
+     * Method to use as children constructor ; this method is called for each object creation
+     */
+    protected function init() {}
 
 }
 

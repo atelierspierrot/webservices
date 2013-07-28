@@ -22,12 +22,8 @@ use Library\HttpFundamental\Request,
 class DefaultController extends AbstractController
 {
 
-    /**
-     * @param object WebServices\FrontController
-     */
-    public function __construct(FrontController $kernel)
+    protected function init()
     {
-        parent::__construct($kernel);
         $this->usage_filepath = __DIR__.'/DefaultController.md.php';
     }
 
@@ -37,7 +33,10 @@ class DefaultController extends AbstractController
 
     public function indexAction()
     {
-//        fopen();
+//        fopen(); // test the internal error handler
+        $this->kernel
+            ->setStatus(FrontController::STATUS_OK)
+            ->setMessage('Nothing to do');
     }
 
     public function helloworldAction()
