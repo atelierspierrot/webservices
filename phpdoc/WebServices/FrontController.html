@@ -139,6 +139,17 @@
             </tr>
                     <tr>
                 <td class="type">
+                    void
+                </td>
+                <td class="last">
+                    <a href="#method_getControllerUsage">getControllerUsage</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a>
                 </td>
                 <td class="last">
@@ -352,7 +363,7 @@
         <h2>Details</h2>
 
                         <h3 id="method_create">
-        <div class="location">at line 180</div>
+        <div class="location">at line 188</div>
         <code>        static    public            <a href="../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a>
     <strong>create</strong>(<abbr title="Library\HttpFundamental\Request">Request</abbr> $request = null, <abbr title="Library\HttpFundamental\Response">Response</abbr> $response = null, array $user_options = array())</code>
     </h3>
@@ -399,7 +410,7 @@
     </div>
 
                 <h3 id="method_log">
-        <div class="location">at line 194</div>
+        <div class="location">at line 202</div>
         <code>        static    public            bool
     <strong>log</strong>($message, array $context = array(), $level = Logger::INFO, $logname = null)</code>
     </h3>
@@ -453,7 +464,7 @@
     </div>
 
                 <h3 id="method_distribute">
-        <div class="location">at line 212</div>
+        <div class="location">at line 220</div>
         <code>            public            
     <strong>distribute</strong>()</code>
     </h3>
@@ -469,7 +480,7 @@
     </div>
 
                 <h3 id="method_display">
-        <div class="location">at line 228</div>
+        <div class="location">at line 240</div>
         <code>            public            
     <strong>display</strong>($return = false)</code>
     </h3>
@@ -496,7 +507,7 @@
     </div>
 
                 <h3 id="method_callController">
-        <div class="location">at line 258</div>
+        <div class="location">at line 270</div>
         <code>            public            bool
     <strong>callController</strong>(string $name = &#039;DefaultController&#039;)</code>
     </h3>
@@ -543,7 +554,7 @@
     </div>
 
                 <h3 id="method_callControllerMethod">
-        <div class="location">at line 281</div>
+        <div class="location">at line 297</div>
         <code>            public            bool
     <strong>callControllerMethod</strong>(string $method = &#039;index&#039;)</code>
     </h3>
@@ -589,8 +600,44 @@
                     </div>
     </div>
 
+                <h3 id="method_getControllerUsage">
+        <div class="location">at line 314</div>
+        <code>            public            void
+    <strong>getControllerUsage</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>void</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../WebServices/NotFoundException.html"><abbr title="WebServices\NotFoundException">NotFoundException</abbr></a></td>
+                <td>if the <code>$usage_filepath</code> property is set in the controller but the file can't be found</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
                 <h3 id="method_setUserOptions">
-        <div class="location">at line 300</div>
+        <div class="location">at line 362</div>
         <code>            public            <a href="../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a>
     <strong>setUserOptions</strong>(array $options = null)</code>
     </h3>
@@ -628,7 +675,7 @@
     </div>
 
                 <h3 id="method_getUserOptions">
-        <div class="location">at line 309</div>
+        <div class="location">at line 371</div>
         <code>            public            array
     <strong>getUserOptions</strong>()</code>
     </h3>
@@ -655,7 +702,7 @@
     </div>
 
                 <h3 id="method_setOption">
-        <div class="location">at line 319</div>
+        <div class="location">at line 381</div>
         <code>            public            <a href="../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a>
     <strong>setOption</strong>(string $name, <abbr title="WebServices\misc">misc</abbr> $value)</code>
     </h3>
@@ -699,7 +746,7 @@
     </div>
 
                 <h3 id="method_getOption">
-        <div class="location">at line 329</div>
+        <div class="location">at line 391</div>
         <code>            public            <abbr title="WebServices\misc">misc</abbr>|null
     <strong>getOption</strong>(string $name)</code>
     </h3>
@@ -737,7 +784,7 @@
     </div>
 
                 <h3 id="method_getLoggerOptions">
-        <div class="location">at line 337</div>
+        <div class="location">at line 399</div>
         <code>            public            array
     <strong>getLoggerOptions</strong>()</code>
     </h3>
@@ -764,7 +811,7 @@
     </div>
 
                 <h3 id="method_setStatus">
-        <div class="location">at line 357</div>
+        <div class="location">at line 419</div>
         <code>            public            <a href="../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a>
     <strong>setStatus</strong>($flag)</code>
     </h3>
@@ -802,7 +849,7 @@
     </div>
 
                 <h3 id="method_getStatus">
-        <div class="location">at line 366</div>
+        <div class="location">at line 428</div>
         <code>            public            int|null
     <strong>getStatus</strong>()</code>
     </h3>
@@ -829,7 +876,7 @@
     </div>
 
                 <h3 id="method_setMessage">
-        <div class="location">at line 375</div>
+        <div class="location">at line 437</div>
         <code>            public            <a href="../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a>
     <strong>setMessage</strong>(string $string)</code>
     </h3>
@@ -867,7 +914,7 @@
     </div>
 
                 <h3 id="method_getMessage">
-        <div class="location">at line 384</div>
+        <div class="location">at line 446</div>
         <code>            public            string|null
     <strong>getMessage</strong>()</code>
     </h3>
@@ -894,7 +941,7 @@
     </div>
 
                 <h3 id="method_addContent">
-        <div class="location">at line 394</div>
+        <div class="location">at line 456</div>
         <code>            public            <a href="../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a>
     <strong>addContent</strong>(string $name, <abbr title="WebServices\misc">misc</abbr> $value)</code>
     </h3>
@@ -938,7 +985,7 @@
     </div>
 
                 <h3 id="method_getContent">
-        <div class="location">at line 403</div>
+        <div class="location">at line 465</div>
         <code>            public            <abbr title="WebServices\misc">misc</abbr>
     <strong>getContent</strong>($name)</code>
     </h3>
@@ -976,7 +1023,7 @@
     </div>
 
                 <h3 id="method_setRequest">
-        <div class="location">at line 412</div>
+        <div class="location">at line 474</div>
         <code>            public            <a href="../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a>
     <strong>setRequest</strong>(<abbr title="Library\HttpFundamental\Request">Request</abbr> $request)</code>
     </h3>
@@ -1013,7 +1060,7 @@
     </div>
 
                 <h3 id="method_getRequest">
-        <div class="location">at line 421</div>
+        <div class="location">at line 483</div>
         <code>            public            <abbr title="WebServices\Request">Request</abbr>
     <strong>getRequest</strong>()</code>
     </h3>
@@ -1040,7 +1087,7 @@
     </div>
 
                 <h3 id="method_setResponse">
-        <div class="location">at line 430</div>
+        <div class="location">at line 492</div>
         <code>            public            <a href="../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a>
     <strong>setResponse</strong>(<abbr title="Library\HttpFundamental\Response">Response</abbr> $response)</code>
     </h3>
@@ -1077,7 +1124,7 @@
     </div>
 
                 <h3 id="method_getResponse">
-        <div class="location">at line 439</div>
+        <div class="location">at line 501</div>
         <code>            public            <abbr title="WebServices\Response">Response</abbr>
     <strong>getResponse</strong>()</code>
     </h3>
@@ -1104,7 +1151,7 @@
     </div>
 
                 <h3 id="method_setLogger">
-        <div class="location">at line 448</div>
+        <div class="location">at line 510</div>
         <code>            public            <a href="../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a>
     <strong>setLogger</strong>(<abbr title="Library\Logger">Logger</abbr> $logger)</code>
     </h3>
@@ -1141,7 +1188,7 @@
     </div>
 
                 <h3 id="method_getLogger">
-        <div class="location">at line 457</div>
+        <div class="location">at line 519</div>
         <code>            public            <abbr title="WebServices\Logger">Logger</abbr>
     <strong>getLogger</strong>()</code>
     </h3>
@@ -1168,7 +1215,7 @@
     </div>
 
                 <h3 id="method_setController">
-        <div class="location">at line 466</div>
+        <div class="location">at line 528</div>
         <code>            public            <a href="../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a>
     <strong>setController</strong>(<a href="../WebServices/Controller/AbstractController.html"><abbr title="WebServices\Controller\AbstractController">AbstractController</abbr></a> $controller)</code>
     </h3>
@@ -1205,7 +1252,7 @@
     </div>
 
                 <h3 id="method_getController">
-        <div class="location">at line 475</div>
+        <div class="location">at line 537</div>
         <code>            public            <a href="../WebServices/Controller/AbstractController.html"><abbr title="WebServices\Controller\AbstractController">AbstractController</abbr></a>
     <strong>getController</strong>()</code>
     </h3>
