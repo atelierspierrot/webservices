@@ -8,9 +8,24 @@
  */
 namespace WebServices\Controller;
 
-use WebServices\FrontController;
+use WebServices\FrontController,
+    WebServices\AbstractFrontControllerAware;
 
-abstract class AbstractController
+/**
+ * Any package or custom controller must extend this basic class
+ * 
+ * It defines the global `FrontController` you can access in any controller's method
+ * with `$this->kernel` or `$this->getFrontController()`.
+ * 
+ * The magic constructor of this mother class will call any `init()` protected method defined
+ * in the children. You can use this method as a children constructor.
+ * 
+ * You can define an object `$usage_filepath` variable on the absolute path of a usage info
+ * to be displayed using the `action=usage` call.
+ * 
+ * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
+ */
+abstract class AbstractController extends AbstractFrontControllerAware
 {
 
     /**
@@ -19,21 +34,21 @@ abstract class AbstractController
      * File can be named with extension '.md' or '.md.php' to be parsed by the
      * [Markdown Extended](http://github.com/atelierspierrot/markdown-extended) parser.
      *
+     * File can be named with final extension '.php' to be compiled by PHP knowning that
+     * a set of environement variables are exported as PHP properties.
+     * See `WebServices\FrontController::parseUsageFilepath()` method.
+     *
      * @var null|string
+     * @see WebServices\FrontController::parseUsageFilepath()
      */
     public $usage_filepath = null;
-
-    /**
-     * @var WebServices\FrontController
-     */
-    protected $kernel;
 
     /**
      * @param object WebServices\FrontController
      */
     public function __construct(FrontController $kernel)
     {
-        $this->kernel = $kernel;
+        $this->setFrontController($kernel);
         $this->init();
     }
 

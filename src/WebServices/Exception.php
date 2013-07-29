@@ -10,19 +10,23 @@ namespace WebServices;
 
 use \Exception as BaseException;
 
+use WebServices\FrontController,
+    WebServices\FrontControllerAwareInterface;
+
 use Library\HttpFundamental\Response,
     Library\Logger;
 
 /**
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */
-class Exception extends BaseException
+class Exception extends BaseException implements FrontControllerAwareInterface
 {
 
     /**
      * @var \WebServices\FrontController
      */
     protected $webservices;
+
 
     /**
      * @param string $message
@@ -32,7 +36,7 @@ class Exception extends BaseException
     public function __construct($message = '', $code = 0, Exception $previous = null)
     {
         parent::__construct($message, $code, $previous);
-        $this->webservices = FrontController::getInstance();
+        $this->setFrontController(FrontController::getInstance());
         $this->webservices
             ->setStatus(FrontController::STATUS_TREATMENT_ERROR)
             ->getResponse()->setStatus(Response::STATUS_ERROR);
@@ -66,6 +70,25 @@ class Exception extends BaseException
         $this->webservices->getResponse()
             ->addContent('error', $exception_context);
         $this->webservices->display();
+    }
+
+    /**
+     * @param object|null A `WebServices\FrontController` instance
+     * 
+     * @return self
+     */
+    public function setFrontController(FrontController $kernel = null)
+    {
+        $this->webservices = $kernel;
+        return $this;
+    }
+
+    /**
+     * @return object|null The `WebServices\FrontController` instance loaded in the object
+     */
+    public function getFrontController()
+    {
+        return $this->webservices;
     }
 
 }

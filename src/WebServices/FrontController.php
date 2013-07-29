@@ -18,6 +18,10 @@ use Library\Helper\Url as UrlHelper,
 use Library\HttpFundamental\Request,
     Library\HttpFundamental\Response;
 
+/**
+ * 
+ * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
+ */
 class FrontController
     extends AbstractSingleton implements StaticCreatorInterface
 {
@@ -315,42 +319,68 @@ exit('yo');
     {
         $ctrl = $this->getController();
         if (!empty($ctrl->usage_filepath)) {
-            if (file_exists($ctrl->usage_filepath)) {
-                if (substr($ctrl->usage_filepath, -3)==='.md') {
-                    \MarkdownExtended\MarkdownExtended::transformSource($ctrl->usage_filepath);
-                    $ctt = \MarkdownExtended\MarkdownExtended::getFullContent();
-
-                } elseif (
-                    substr($ctrl->usage_filepath, -7)==='.md.php' ||
-                    substr($ctrl->usage_filepath, -4)==='.php'
-                ) {
-                    ob_start();
-                    extract(array(
-                        'webservice_url'=>str_replace('demo', 'www', \Library\Helper\Url::getRequestUrl(false, true))
-                    ), EXTR_OVERWRITE);
-                    include $ctrl->usage_filepath;
-                    $file_ctt = ob_get_contents();
-                    ob_end_clean();
-                    if (substr($ctrl->usage_filepath, -7)==='.md.php') {
-                        \MarkdownExtended\MarkdownExtended::transformString($file_ctt);
-                        $ctt = \MarkdownExtended\MarkdownExtended::getFullContent();
-                    } else {
-                        $ctt = $file_ctt;
-                    }
-
-                } else {
-                    $ctt = @file_get_contents($ctrl->usage_filepath);
-                }
-
-                echo $ctt;
-                exit;
-            } else {
-                throw new NotFoundException(sprintf("Usage file '%s' of webservice '%s' not found!",
-                    $ctrl->usage_filepath, get_class($this->getController())));
-            }
+            $ctt = $this->parseUsageFilepath($ctrl->usage_filepath);
+            echo $ctt;
+            exit;
         }
     }
 
+// ------------------------
+// Special "usage" feature
+// ------------------------
+
+    /**
+     * @param string $file_path
+     * 
+     * @return void
+     *
+     * @throws \WebServices\NotFoundException if the `$usage_filepath` property is set in the controller but
+     *          the file can't be found
+     */
+    public function parseUsageFilepath($file_path)
+    {
+        if (file_exists($file_path)) {
+            if (substr($file_path, -3)==='.md') {
+                \MarkdownExtended\MarkdownExtended::transformSource($file_path);
+                $ctt = \MarkdownExtended\MarkdownExtended::getFullContent();
+
+            } elseif (
+                substr($file_path, -7)==='.md.php' ||
+                substr($file_path, -4)==='.php'
+            ) {
+                ob_start();
+                extract($this->getUsageParams(), EXTR_OVERWRITE);
+                include $file_path;
+                $file_ctt = ob_get_contents();
+                ob_end_clean();
+                if (substr($file_path, -7)==='.md.php') {
+                    \MarkdownExtended\MarkdownExtended::transformString($file_ctt);
+                    $ctt = \MarkdownExtended\MarkdownExtended::getFullContent();
+                } else {
+                    $ctt = $file_ctt;
+                }
+
+            } else {
+                $ctt = @file_get_contents($file_path);
+            }
+
+            return $ctt;
+        } else {
+            throw new NotFoundException(sprintf("Usage file '%s' not found!", $file_path));
+        }
+        return null;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getUsageParams()
+    {
+        $data = $this->getUserOptions();
+        $data['webservice_url'] = UrlHelper::getRequestUrl(false, true, false, true);
+        return $data;
+    }
+    
 // ------------------------
 // Getters / Setters
 // ------------------------
