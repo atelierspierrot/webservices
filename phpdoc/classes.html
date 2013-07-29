@@ -32,6 +32,14 @@
             </tr>
                     <tr>
                 <td>
+                                        <a href="WebServices/AbstractFrontControllerAware.html" target="main"><abbr title="WebServices\AbstractFrontControllerAware">WebServices\AbstractFrontControllerAware</abbr></a>
+                                    </td>
+                <td>
+                    This class designs an object depending on the <code>WebServices\FrontController</code> object  Keep in mind that the FrontController instance in the object is stored in the <code>$kernel</code> property.
+                </td>
+            </tr>
+                    <tr>
+                <td>
                                         <a href="WebServices/BadRequestException.html" target="main"><abbr title="WebServices\BadRequestException">WebServices\BadRequestException</abbr></a>
                                     </td>
                 <td>
@@ -44,8 +52,7 @@
                                         <a href="WebServices/Controller/AbstractController.html" target="main"><abbr title="WebServices\Controller\AbstractController">WebServices\Controller\AbstractController</abbr></a>
                                     </td>
                 <td>
-                    
-
+                    Any package or custom controller must extend this basic class  It defines the global <code>FrontController</code> you can access in any controller's method with <code>$this-&gt;kernel</code> or <code>$this-&gt;getFrontController()</code>.
                 </td>
             </tr>
                     <tr>
@@ -82,6 +89,14 @@
                 <td>
                     
 
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                    <em>                    <a href="WebServices/FrontControllerAwareInterface.html" target="main"><abbr title="WebServices\FrontControllerAwareInterface">WebServices\FrontControllerAwareInterface</abbr></a>
+                    </em>                </td>
+                <td>
+                    This interface should be implemented by any object depending on the <code>WebServices\FrontController</code> object
                 </td>
             </tr>
                     <tr>

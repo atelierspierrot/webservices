@@ -25,7 +25,7 @@
                                 <a href="#letterC">C</a>
                                 <a href="#letterD">D</a>
                                 <a href="#letterE">E</a>
-                                F
+                                <a href="#letterF">F</a>
                                 <a href="#letterG">G</a>
                                 H
                                 I
@@ -49,9 +49,9 @@
                 </div>
         <div class="content">
                 <h2 id="letterA">A</h2>
-        <dl id="index"><dt><a href="WebServices/Controller/AbstractController.html"><abbr title="WebServices\Controller\AbstractController">AbstractController</abbr></a> &mdash; <em>Class in namespace <a href="WebServices/Controller.html">WebServices\Controller</a></em></dt>
-                    <dd>
-</dd><dt><a href="WebServices/FrontController.html#method_addContent"><abbr title="WebServices\FrontController">FrontController</abbr>::addContent</a>() &mdash; <em>Method in class <a href="WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a></em></dt>
+        <dl id="index"><dt><a href="WebServices/AbstractFrontControllerAware.html"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a> &mdash; <em>Class in namespace <a href="WebServices.html">WebServices</a></em></dt>
+                    <dd>This class designs an object depending on the <code>WebServices\FrontController</code> object  Keep in mind that the FrontController instance in the object is stored in the <code>$kernel</code> property.</dd><dt><a href="WebServices/Controller/AbstractController.html"><abbr title="WebServices\Controller\AbstractController">AbstractController</abbr></a> &mdash; <em>Class in namespace <a href="WebServices/Controller.html">WebServices\Controller</a></em></dt>
+                    <dd>Any package or custom controller must extend this basic class  It defines the global <code>FrontController</code> you can access in any controller's method with <code>$this-&gt;kernel</code> or <code>$this-&gt;getFrontController()</code>.</dd><dt><a href="WebServices/FrontController.html#method_addContent"><abbr title="WebServices\FrontController">FrontController</abbr>::addContent</a>() &mdash; <em>Method in class <a href="WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a></em></dt>
                     <dd>
 </dd>        </dl><h2 id="letterB">B</h2>
         <dl id="index"><dt><a href="WebServices/BadRequestException.html"><abbr title="WebServices\BadRequestException">BadRequestException</abbr></a> &mdash; <em>Class in namespace <a href="WebServices.html">WebServices</a></em></dt>
@@ -75,11 +75,18 @@
 </dd>        </dl><h2 id="letterF">F</h2>
         <dl id="index"><dt><a href="WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a> &mdash; <em>Class in namespace <a href="WebServices.html">WebServices</a></em></dt>
                     <dd>
-</dd>        </dl><h2 id="letterG">G</h2>
+</dd><dt><a href="WebServices/FrontControllerAwareInterface.html"><abbr title="WebServices\FrontControllerAwareInterface">FrontControllerAwareInterface</abbr></a> &mdash; <em>Class in namespace <a href="WebServices.html">WebServices</a></em></dt>
+                    <dd>This interface should be implemented by any object depending on the <code>WebServices\FrontController</code> object</dd>        </dl><h2 id="letterG">G</h2>
         <dl id="index"><dt><a href="SplClassLoader.html#method_getNamespaceSeparator"><abbr title="SplClassLoader">SplClassLoader</abbr>::getNamespaceSeparator</a>() &mdash; <em>Method in class <a href="SplClassLoader.html"><abbr title="SplClassLoader">SplClassLoader</abbr></a></em></dt>
                     <dd>Gets the namespace seperator used by classes in the namespace of this class loader.</dd><dt><a href="SplClassLoader.html#method_getIncludePath"><abbr title="SplClassLoader">SplClassLoader</abbr>::getIncludePath</a>() &mdash; <em>Method in class <a href="SplClassLoader.html"><abbr title="SplClassLoader">SplClassLoader</abbr></a></em></dt>
                     <dd>Gets the base include path for all class files in the namespace of this class loader.</dd><dt><a href="SplClassLoader.html#method_getFileExtension"><abbr title="SplClassLoader">SplClassLoader</abbr>::getFileExtension</a>() &mdash; <em>Method in class <a href="SplClassLoader.html"><abbr title="SplClassLoader">SplClassLoader</abbr></a></em></dt>
-                    <dd>Gets the file extension of class files in the namespace of this class loader.</dd><dt><a href="WebServices/FrontController.html#method_getControllerUsage"><abbr title="WebServices\FrontController">FrontController</abbr>::getControllerUsage</a>() &mdash; <em>Method in class <a href="WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a></em></dt>
+                    <dd>Gets the file extension of class files in the namespace of this class loader.</dd><dt><a href="WebServices/AbstractFrontControllerAware.html#method_getFrontController"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr>::getFrontController</a>() &mdash; <em>Method in class <a href="WebServices/AbstractFrontControllerAware.html"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a></em></dt>
+                    <dd>
+</dd><dt><a href="WebServices/ErrorException.html#method_getFrontController"><abbr title="WebServices\ErrorException">ErrorException</abbr>::getFrontController</a>() &mdash; <em>Method in class <a href="WebServices/ErrorException.html"><abbr title="WebServices\ErrorException">ErrorException</abbr></a></em></dt>
+                    <dd>
+</dd><dt><a href="WebServices/Exception.html#method_getFrontController"><abbr title="WebServices\Exception">Exception</abbr>::getFrontController</a>() &mdash; <em>Method in class <a href="WebServices/Exception.html"><abbr title="WebServices\Exception">Exception</abbr></a></em></dt>
+                    <dd>
+</dd><dt><a href="WebServices/FrontController.html#method_getControllerUsage"><abbr title="WebServices\FrontController">FrontController</abbr>::getControllerUsage</a>() &mdash; <em>Method in class <a href="WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a></em></dt>
                     <dd>
 </dd><dt><a href="WebServices/FrontController.html#method_getUserOptions"><abbr title="WebServices\FrontController">FrontController</abbr>::getUserOptions</a>() &mdash; <em>Method in class <a href="WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a></em></dt>
                     <dd>
@@ -113,6 +120,9 @@
                     <dd>Shrotcut for logging message</dd>        </dl><h2 id="letterN">N</h2>
         <dl id="index"><dt><a href="WebServices/NotFoundException.html"><abbr title="WebServices\NotFoundException">NotFoundException</abbr></a> &mdash; <em>Class in namespace <a href="WebServices.html">WebServices</a></em></dt>
                     <dd>
+</dd>        </dl><h2 id="letterP">P</h2>
+        <dl id="index"><dt><a href="WebServices/FrontController.html#method_parseUsageFilepath"><abbr title="WebServices\FrontController">FrontController</abbr>::parseUsageFilepath</a>() &mdash; <em>Method in class <a href="WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a></em></dt>
+                    <dd>
 </dd>        </dl><h2 id="letterR">R</h2>
         <dl id="index"><dt><a href="SplClassLoader.html#method_register"><abbr title="SplClassLoader">SplClassLoader</abbr>::register</a>() &mdash; <em>Method in class <a href="SplClassLoader.html"><abbr title="SplClassLoader">SplClassLoader</abbr></a></em></dt>
                     <dd>Installs this class loader on the SPL autoload stack.</dd><dt><a href="WebServices/ErrorException.html#method_render"><abbr title="WebServices\ErrorException">ErrorException</abbr>::render</a>() &mdash; <em>Method in class <a href="WebServices/ErrorException.html"><abbr title="WebServices\ErrorException">ErrorException</abbr></a></em></dt>
@@ -122,7 +132,13 @@
                     <dd>SplClassLoader implementation that implements the technical interoperability standards for PHP 5.3 namespaces and class names.</dd><dt><a href="SplClassLoader.html#method_setNamespaceSeparator"><abbr title="SplClassLoader">SplClassLoader</abbr>::setNamespaceSeparator</a>() &mdash; <em>Method in class <a href="SplClassLoader.html"><abbr title="SplClassLoader">SplClassLoader</abbr></a></em></dt>
                     <dd>Sets the namespace separator used by classes in the namespace of this class loader.</dd><dt><a href="SplClassLoader.html#method_setIncludePath"><abbr title="SplClassLoader">SplClassLoader</abbr>::setIncludePath</a>() &mdash; <em>Method in class <a href="SplClassLoader.html"><abbr title="SplClassLoader">SplClassLoader</abbr></a></em></dt>
                     <dd>Sets the base include path for all class files in the namespace of this class loader.</dd><dt><a href="SplClassLoader.html#method_setFileExtension"><abbr title="SplClassLoader">SplClassLoader</abbr>::setFileExtension</a>() &mdash; <em>Method in class <a href="SplClassLoader.html"><abbr title="SplClassLoader">SplClassLoader</abbr></a></em></dt>
-                    <dd>Sets the file extension of class files in the namespace of this class loader.</dd><dt><a href="WebServices/FrontController.html#method_setUserOptions"><abbr title="WebServices\FrontController">FrontController</abbr>::setUserOptions</a>() &mdash; <em>Method in class <a href="WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a></em></dt>
+                    <dd>Sets the file extension of class files in the namespace of this class loader.</dd><dt><a href="WebServices/AbstractFrontControllerAware.html#method_setFrontController"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr>::setFrontController</a>() &mdash; <em>Method in class <a href="WebServices/AbstractFrontControllerAware.html"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a></em></dt>
+                    <dd>
+</dd><dt><a href="WebServices/ErrorException.html#method_setFrontController"><abbr title="WebServices\ErrorException">ErrorException</abbr>::setFrontController</a>() &mdash; <em>Method in class <a href="WebServices/ErrorException.html"><abbr title="WebServices\ErrorException">ErrorException</abbr></a></em></dt>
+                    <dd>
+</dd><dt><a href="WebServices/Exception.html#method_setFrontController"><abbr title="WebServices\Exception">Exception</abbr>::setFrontController</a>() &mdash; <em>Method in class <a href="WebServices/Exception.html"><abbr title="WebServices\Exception">Exception</abbr></a></em></dt>
+                    <dd>
+</dd><dt><a href="WebServices/FrontController.html#method_setUserOptions"><abbr title="WebServices\FrontController">FrontController</abbr>::setUserOptions</a>() &mdash; <em>Method in class <a href="WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a></em></dt>
                     <dd>
 </dd><dt><a href="WebServices/FrontController.html#method_setOption"><abbr title="WebServices\FrontController">FrontController</abbr>::setOption</a>() &mdash; <em>Method in class <a href="WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a></em></dt>
                     <dd>
@@ -137,6 +153,8 @@
 </dd><dt><a href="WebServices/FrontController.html#method_setLogger"><abbr title="WebServices\FrontController">FrontController</abbr>::setLogger</a>() &mdash; <em>Method in class <a href="WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a></em></dt>
                     <dd>
 </dd><dt><a href="WebServices/FrontController.html#method_setController"><abbr title="WebServices\FrontController">FrontController</abbr>::setController</a>() &mdash; <em>Method in class <a href="WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a></em></dt>
+                    <dd>
+</dd><dt><a href="WebServices/FrontControllerAwareInterface.html#method_setFrontController"><abbr title="WebServices\FrontControllerAwareInterface">FrontControllerAwareInterface</abbr>::setFrontController</a>() &mdash; <em>Method in class <a href="WebServices/FrontControllerAwareInterface.html"><abbr title="WebServices\FrontControllerAwareInterface">FrontControllerAwareInterface</abbr></a></em></dt>
                     <dd>
 </dd>        </dl><h2 id="letterT">T</h2>
         <dl id="index"><dt><a href="WebServices/Controller/DefaultController.html#method_testGetAction"><abbr title="WebServices\Controller\DefaultController">DefaultController</abbr>::testGetAction</a>() &mdash; <em>Method in class <a href="WebServices/Controller/DefaultController.html"><abbr title="WebServices\Controller\DefaultController">DefaultController</abbr></a></em></dt>
@@ -159,8 +177,7 @@
                     <dd>Path of a file containing the "usage" info of the webservice controller</dd>        </dl><h2 id="letter_">_</h2>
         <dl id="index"><dt><a href="SplClassLoader.html#method___construct"><abbr title="SplClassLoader">SplClassLoader</abbr>::__construct</a>() &mdash; <em>Method in class <a href="SplClassLoader.html"><abbr title="SplClassLoader">SplClassLoader</abbr></a></em></dt>
                     <dd>Creates a new <tt>SplClassLoader</tt> that loads classes of the specified namespace.</dd><dt><a href="WebServices/BadRequestException.html#method___construct"><abbr title="WebServices\BadRequestException">BadRequestException</abbr>::__construct</a>() &mdash; <em>Method in class <a href="WebServices/BadRequestException.html"><abbr title="WebServices\BadRequestException">BadRequestException</abbr></a></em></dt>
-                    <dd>
-</dd><dt><a href="WebServices/Controller/AbstractController.html#method___construct"><abbr title="WebServices\Controller\AbstractController">AbstractController</abbr>::__construct</a>() &mdash; <em>Method in class <a href="WebServices/Controller/AbstractController.html"><abbr title="WebServices\Controller\AbstractController">AbstractController</abbr></a></em></dt>
+                    <dd>Construction of the exception - a message is needed (1st argument)</dd><dt><a href="WebServices/Controller/AbstractController.html#method___construct"><abbr title="WebServices\Controller\AbstractController">AbstractController</abbr>::__construct</a>() &mdash; <em>Method in class <a href="WebServices/Controller/AbstractController.html"><abbr title="WebServices\Controller\AbstractController">AbstractController</abbr></a></em></dt>
                     <dd>
 </dd><dt><a href="WebServices/ErrorException.html#method___construct"><abbr title="WebServices\ErrorException">ErrorException</abbr>::__construct</a>() &mdash; <em>Method in class <a href="WebServices/ErrorException.html"><abbr title="WebServices\ErrorException">ErrorException</abbr></a></em></dt>
                     <dd>
@@ -169,10 +186,8 @@
                     <dd>
 </dd><dt><a href="WebServices/Exception.html#method___toString"><abbr title="WebServices\Exception">Exception</abbr>::__toString</a>() &mdash; <em>Method in class <a href="WebServices/Exception.html"><abbr title="WebServices\Exception">Exception</abbr></a></em></dt>
                     <dd>Force the error display</dd><dt><a href="WebServices/NotFoundException.html#method___construct"><abbr title="WebServices\NotFoundException">NotFoundException</abbr>::__construct</a>() &mdash; <em>Method in class <a href="WebServices/NotFoundException.html"><abbr title="WebServices\NotFoundException">NotFoundException</abbr></a></em></dt>
-                    <dd>
-</dd><dt><a href="WebServices/TreatmentException.html#method___construct"><abbr title="WebServices\TreatmentException">TreatmentException</abbr>::__construct</a>() &mdash; <em>Method in class <a href="WebServices/TreatmentException.html"><abbr title="WebServices\TreatmentException">TreatmentException</abbr></a></em></dt>
-                    <dd>
-</dd>        </dl>        </div>
+                    <dd>Construction of the exception - a message is needed (1st argument)</dd><dt><a href="WebServices/TreatmentException.html#method___construct"><abbr title="WebServices\TreatmentException">TreatmentException</abbr>::__construct</a>() &mdash; <em>Method in class <a href="WebServices/TreatmentException.html"><abbr title="WebServices\TreatmentException">TreatmentException</abbr></a></em></dt>
+                    <dd>Construction of the exception - a message is needed (1st argument)</dd>        </dl>        </div>
             <div id="footer">
         Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
     </div>
