@@ -149,9 +149,10 @@ on the absolute accessible path of a usage file. The content can be parsed by th
 [Markdown Extended](http://github.com/atelierspierrot/markdown-extended) parser if it is
 named with a `.md` extension.
 
-As it can be useful in some cases, you can write your usage contents using the PHP variable
-`$webservice_url`, which will be the current base URL called. To do so, you MUST use a 
-final extension `.php` (`.md.php` to use the Markdown parser).
+You can write your usage contents in PHP as in this case, the current configuration settings
+are loaded as environment variables. The special variable `$webservice_url` is defined on the
+current interface URL. To do so, you MUST use a final extension `.php`
+(`.md.php` to use the Markdown parser).
 
 The "usage" string is displayed fo each controller calling the `usage` action.
 
