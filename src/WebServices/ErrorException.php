@@ -10,13 +10,16 @@ namespace WebServices;
 
 use \ErrorException as BaseErrorException;
 
+use WebServices\FrontController,
+    WebServices\FrontControllerAwareInterface;
+
 use Library\HttpFundamental\Response,
     Library\Logger;
 
 /**
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */
-class ErrorException extends BaseErrorException
+class ErrorException extends BaseErrorException implements FrontControllerAwareInterface
 {
 
     /**
@@ -35,7 +38,7 @@ class ErrorException extends BaseErrorException
     public function __construct($message = '', $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, Exception $previous = null)
     {
         parent::__construct($message, $code, $severity, $filename, $lineno, $previous);
-        $this->webservices = FrontController::getInstance();
+        $this->setFrontController(FrontController::getInstance());
         $this->webservices
             ->setStatus(FrontController::STATUS_INTERNAL_ERROR)
             ->getResponse()->setStatus(Response::STATUS_ERROR);
@@ -72,6 +75,25 @@ class ErrorException extends BaseErrorException
         $this->webservices->getResponse()
             ->addContent('error', $exception_context);
         $this->webservices->display();
+    }
+
+    /**
+     * @param object|null A `WebServices\FrontController` instance
+     * 
+     * @return self
+     */
+    public function setFrontController(FrontController $kernel = null)
+    {
+        $this->webservices = $kernel;
+        return $this;
+    }
+
+    /**
+     * @return object|null The `WebServices\FrontController` instance loaded in the object
+     */
+    public function getFrontController()
+    {
+        return $this->webservices;
     }
 
 }
