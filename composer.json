@@ -4,7 +4,7 @@
     "description": "A PHP engine to manage web-services easily",
     "keywords": [ "webservices", "engine" ],
     "homepage": "http://github.com/atelierspierrot/webservices",
-    "version": "1.0.4",
+    "version": "1.0.4-dev",
     "license": "GPL-3.0",
     "authors": [{
         "name": "Les Ateliers Pierrot & contributors",
@@ -23,7 +23,8 @@
         "psr/log": "dev-master"
     },
     "require-dev": {
-        "sami/sami": "dev-master"
+        "sami/sami": "dev-master",
+        "phpmd/phpmd" : "1.4.*"
     },
     "autoload": { "psr-0": {"WebServices": "src"} }
 }
