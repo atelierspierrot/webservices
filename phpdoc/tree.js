@@ -1,6 +1,4 @@
-var tree = [["[Global Namespace]",,"",
-                [["SplClassLoader","SplClassLoader.html","",
-                [        ]]        ]],["WebServices","WebServices.html","",
+var tree = [["WebServices","WebServices.html","",
                 [["Controller","WebServices\/Controller.html","",
                 [["AbstractController","WebServices\/Controller\/AbstractController.html"," < AbstractFrontControllerAware",
                 [        ]],["DefaultController","WebServices\/Controller\/DefaultController.html"," < AbstractController",
