@@ -23,7 +23,8 @@
         "psr/log": "dev-master"
     },
     "require-dev": {
-        "sami/sami": "dev-master"
+        "sami/sami": "dev-master",
+        "phpmd/phpmd" : "1.4.*"
     },
     "autoload": { "psr-0": {"WebServices": "src"} }
 }
