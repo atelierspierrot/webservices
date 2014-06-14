@@ -1,10 +1,10 @@
 <?php
 /**
  * WebServices - PHP package
- * Copyleft (c) 2013 Pierre Cassat and contributors
+ * Copyleft (c) 2013-2014 Pierre Cassat and contributors
  * <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
  * License GPL-3.0 <http://www.opensource.org/licenses/gpl-3.0.html>
- * Sources <https://github.com/atelierspierrot/webservices>
+ * Sources <http://github.com/atelierspierrot/webservices>
  */
 namespace WebServices\Controller;
 
@@ -23,7 +23,7 @@ use WebServices\FrontController,
  * You can define an object `$usage_filepath` variable on the absolute path of a usage info
  * to be displayed using the `action=usage` call.
  * 
- * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
+ * @author      Piero Wbmstr <me@e-piwi.fr>
  */
 abstract class AbstractController extends AbstractFrontControllerAware
 {
