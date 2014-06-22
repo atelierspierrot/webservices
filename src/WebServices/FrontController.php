@@ -8,22 +8,21 @@
  */
 namespace WebServices;
 
-use Patterns\Interfaces\StaticCreatorInterface,
-    Patterns\Abstracts\AbstractSingleton;
-
-use Library\Helper\Url as UrlHelper,
-    Library\Helper\Directory as DirectoryHelper,
-    Library\Logger;
-
-use Library\HttpFundamental\Request,
-    Library\HttpFundamental\Response;
+use \Patterns\Interfaces\StaticCreatorInterface;
+use \Patterns\Abstracts\AbstractSingleton;
+use \Library\Helper\Url as UrlHelper;
+use \Library\Helper\Directory as DirectoryHelper;
+use \Library\Logger;
+use \Library\HttpFundamental\Request;
+use \Library\HttpFundamental\Response;
 
 /**
  * 
  * @author      Piero Wbmstr <me@e-piwi.fr>
  */
 class FrontController
-    extends AbstractSingleton implements StaticCreatorInterface
+    extends AbstractSingleton
+    implements StaticCreatorInterface
 {
 
     /**
@@ -71,23 +70,22 @@ class FrontController
     );
 
     /**
-     * Options passed to constructor
-     * @var array
+     * @var array Options passed to constructor
      */
     protected $user_options;
 
     /**
-     * @var \WebServices\Response
+     * @var \Library\HttpFundamental\Response
      */
     protected $response;
 
     /**
-     * @var \WebServices\Request
+     * @var \Library\HttpFundamental\Request
      */
     protected $request;
 
     /**
-     * @var \WebServices\Logger
+     * @var \Library\Logger
      */
     protected $logger;
 
@@ -149,8 +147,8 @@ class FrontController
     /**
      * Initializer : this method is called after any instance creation
      *
-     * @param object $request \WebServices\Request
-     * @param object $response \WebServices\Response
+     * @param object $request \Library\HttpFundamental\Request
+     * @param object $response \Library\HttpFundamental\Response
      * @param array $user_options
      */
     protected function init(Request $request = null, Response $response = null, array $user_options = array())
@@ -183,10 +181,9 @@ exit('yo');
     /**
      * Creation of a singleton instance
      *
-     * @param object $request \WebServices\Request
-     * @param object $response \WebServices\Response
+     * @param object $request \Library\HttpFundamental\Request
+     * @param object $response \Library\HttpFundamental\Response
      * @param array $user_options
-     *
      * @return self
      */
     public static function create(Request $request = null, Response $response = null, array $user_options = array())
@@ -199,9 +196,9 @@ exit('yo');
      *
      * @param string $message
      * @param array $context
+     * @param int $level
      * @param string $logname
-     *
-     * @return bool The result of `\WebServices\Logger::log()`
+     * @return bool The result of `\Library\Logger::log()`
      */
     public static function log($message, array $context = array(), $level = Logger::INFO, $logname = null)
     {
@@ -265,9 +262,7 @@ exit('yo');
 
     /**
      * @param string $name
-     *
      * @return bool
-     *
      * @throws \WebServices\NotFoundException if class `$name` or `WebServices\Controller\$name`
      *          does not exist
      */
@@ -292,10 +287,8 @@ exit('yo');
 
     /**
      * @param string $method
-     *
      * @return bool
-     *
-     * @throws \WebServices\NotFoundException if method `$method` does not exist in 
+     * @throws \WebServices\NotFoundException if method `$method` does not exist in
      *          object `$this->controller`
      */
     public function callControllerMethod($method = 'index')
@@ -311,7 +304,6 @@ exit('yo');
 
     /**
      * @return void
-     *
      * @throws \WebServices\NotFoundException if the `$usage_filepath` property is set in the controller but
      *          the file can't be found
      */
@@ -331,9 +323,7 @@ exit('yo');
 
     /**
      * @param string $file_path
-     * 
      * @return void
-     *
      * @throws \WebServices\NotFoundException if the `$usage_filepath` property is set in the controller but
      *          the file can't be found
      */
@@ -405,7 +395,7 @@ exit('yo');
 
     /**
      * @param string $name
-     * @param misc $value
+     * @param mixed $value
      * @return self
      */
     public function setOption($name, $value)
@@ -416,7 +406,7 @@ exit('yo');
 
     /**
      * @param string $name
-     * @return misc|null
+     * @return mixed|null
      */
     public function getOption($name)
     {
@@ -443,7 +433,7 @@ exit('yo');
     }
 
     /**
-     * @param int $status Must be one of the class constants `STATUS_...`
+     * @param int $flag Must be one of the class constants `STATUS_...`
      * @return self
      */
     public function setStatus($flag)
@@ -480,7 +470,7 @@ exit('yo');
 
     /**
      * @param string $name
-     * @param misc $value
+     * @param mixed $value
      * @return self
      */
     public function addContent($name, $value)
@@ -490,7 +480,7 @@ exit('yo');
     }
 
     /**
-     * @return misc
+     * @return mixed
      */
     public function getContent($name)
     {
@@ -498,7 +488,7 @@ exit('yo');
     }
 
     /**
-     * @param object $request \WebServices\Request
+     * @param \Library\HttpFundamental\Request $request
      * @return self
      */
     public function setRequest(Request $request)
@@ -508,7 +498,7 @@ exit('yo');
     }
 
     /**
-     * @return \WebServices\Request
+     * @return \Library\HttpFundamental\Request
      */
     public function getRequest()
     {
@@ -516,7 +506,7 @@ exit('yo');
     }
 
     /**
-     * @param object $response \WebServices\Response
+     * @param \Library\HttpFundamental\Response $response
      * @return self
      */
     public function setResponse(Response $response)
@@ -526,7 +516,7 @@ exit('yo');
     }
 
     /**
-     * @return \WebServices\Response
+     * @return \Library\HttpFundamental\Response
      */
     public function getResponse()
     {
@@ -534,7 +524,7 @@ exit('yo');
     }
 
     /**
-     * @param object $logger \WebServices\Logger
+     * @param \Library\Logger $logger
      * @return self
      */
     public function setLogger(Logger $logger)
@@ -544,7 +534,7 @@ exit('yo');
     }
 
     /**
-     * @return \WebServices\Logger
+     * @return \Library\Logger
      */
     public function getLogger()
     {
@@ -552,7 +542,7 @@ exit('yo');
     }
 
     /**
-     * @param object $controller \WebServices\Controller\AbstractController
+     * @param \WebServices\Controller\AbstractController $controller
      * @return self
      */
     public function setController(Controller\AbstractController $controller)

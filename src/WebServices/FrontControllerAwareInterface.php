@@ -8,10 +8,10 @@
  */
 namespace WebServices;
 
-use WebServices\FrontController;
+use \WebServices\FrontController;
 
 /**
- * This interface should be implemented by any object depending on the `WebServices\FrontController` object
+ * This interface should be implemented by any object depending on the `\WebServices\FrontController` object
  * 
  * @author      Piero Wbmstr <me@e-piwi.fr>
  */
@@ -19,7 +19,7 @@ interface FrontControllerAwareInterface
 {
 
     /**
-     * @param object|null A `WebServices\FrontController` instance
+     * @param \WebServices\FrontController $kernel
      */
     public function setFrontController(FrontController $kernel = null);
 
