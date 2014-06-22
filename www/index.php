@@ -47,8 +47,8 @@ $options = array(
 );
 
 // distribute request
-WebServices\FrontController
-    ::create(new Library\HttpFundamental\Request, new Library\HttpFundamental\Response, $options)
+\WebServices\FrontController
+    ::create(new \Library\HttpFundamental\Request, new \Library\HttpFundamental\Response, $options)
         ->distribute();
 
 // or exit

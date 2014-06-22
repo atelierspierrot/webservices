@@ -176,9 +176,9 @@ developments (they must be accessible for Apache user as they may be created by 
 As the "WebServices" depends on them (they must be installed), you can use in your scripts
 all classes from the following third-party packages:
 
--   the [PHP Library of Les Ateliers Pierrot](https://github.com/atelierspierrot/library), 
+-   the [PHP Library of Les Ateliers Pierrot](http://github.com/atelierspierrot/library), 
     see <http://docs.ateliers-pierrot.fr/library/> for an inline documentation
--   the [PHP Patterns package of Les Ateliers Pierrot](https://github.com/atelierspierrot/patterns), 
+-   the [PHP Patterns package of Les Ateliers Pierrot](http://github.com/atelierspierrot/patterns), 
     see <http://docs.ateliers-pierrot.fr/patterns/> for an inline documentation.
 
 ## Development of the package
@@ -187,7 +187,7 @@ To install all PHP packages for development, just run:
 
     ~$ composer install --dev
 
-A documentation can be generated with [Sami](https://github.com/fabpot/Sami) running:
+A documentation can be generated with [Sami](http://github.com/fabpot/Sami) running:
 
     ~$ php vendor/sami/sami/sami.php render sami.config.php
 
@@ -198,9 +198,9 @@ The latest version of this documentation is available online at <http://docs.ate
 
 >    WebServices Engine
 
->    https://github.com/atelierspierrot/webservices
+>    http://github.com/atelierspierrot/webservices
 
->    Copyleft 2013, Pierre Cassat and contributors
+>    Copyleft 2013-2014, Pierre Cassat and contributors
 
 >    Licensed under the GPL Version 3 license.
 
