@@ -8,7 +8,7 @@
  */
 namespace WebServices;
 
-use Library\HttpFundamental\Response;
+use \Library\HttpFundamental\Response;
 
 /**
  * @author      Piero Wbmstr <me@e-piwi.fr>
@@ -20,8 +20,8 @@ class TreatmentException extends \WebServices\Exception
      * Construction of the exception - a message is needed (1st argument)
      *
      * @param string $message The exception message
-     * @param numeric $code The exception code
-     * @param misc $previous The previous exception if so
+     * @param int $code The exception code
+     * @param \Exception $previous The previous exception if so
      */
     public function __construct($message = '', $code = 0, Exception $previous = null)
     {

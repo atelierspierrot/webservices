@@ -9,17 +9,17 @@
 namespace WebServices;
 
 use \Exception as BaseException;
-
-use WebServices\FrontController,
-    WebServices\FrontControllerAwareInterface;
-
-use Library\HttpFundamental\Response,
-    Library\Logger;
+use \WebServices\FrontController;
+use \WebServices\FrontControllerAwareInterface;
+use \Library\HttpFundamental\Response;
+use \Library\Logger;
 
 /**
  * @author      Piero Wbmstr <me@e-piwi.fr>
  */
-class Exception extends BaseException implements FrontControllerAwareInterface
+class Exception
+    extends BaseException
+    implements FrontControllerAwareInterface
 {
 
     /**
@@ -31,7 +31,7 @@ class Exception extends BaseException implements FrontControllerAwareInterface
     /**
      * @param string $message
      * @param int $code
-     * @param object $previous \Exception
+     * @param \Exception $previous
      */
     public function __construct($message = '', $code = 0, Exception $previous = null)
     {
@@ -73,8 +73,7 @@ class Exception extends BaseException implements FrontControllerAwareInterface
     }
 
     /**
-     * @param object|null A `WebServices\FrontController` instance
-     * 
+     * @param \WebServices\FrontController $kernel
      * @return self
      */
     public function setFrontController(FrontController $kernel = null)
@@ -84,7 +83,7 @@ class Exception extends BaseException implements FrontControllerAwareInterface
     }
 
     /**
-     * @return object|null The `WebServices\FrontController` instance loaded in the object
+     * @return \WebServices\FrontController
      */
     public function getFrontController()
     {

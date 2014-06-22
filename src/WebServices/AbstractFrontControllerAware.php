@@ -8,7 +8,7 @@
  */
 namespace WebServices;
 
-use WebServices\FrontController;
+use \WebServices\FrontController;
 
 /**
  * This class designs an object depending on the `WebServices\FrontController` object
@@ -22,13 +22,12 @@ abstract class AbstractFrontControllerAware implements FrontControllerAwareInter
 {
 
     /**
-     * @var WebServices\FrontController
+     * @var \WebServices\FrontController
      */
     protected $kernel;
 
     /**
-     * @param object|null A `WebServices\FrontController` instance
-     * 
+     * @param \WebServices\FrontController $kernel
      * @return self
      */
     public function setFrontController(FrontController $kernel = null)
@@ -38,7 +37,7 @@ abstract class AbstractFrontControllerAware implements FrontControllerAwareInter
     }
 
     /**
-     * @return object|null The `WebServices\FrontController` instance loaded in the object
+     * @return \WebServices\FrontController
      */
     public function getFrontController()
     {

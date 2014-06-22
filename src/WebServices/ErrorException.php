@@ -9,17 +9,17 @@
 namespace WebServices;
 
 use \ErrorException as BaseErrorException;
-
-use WebServices\FrontController,
-    WebServices\FrontControllerAwareInterface;
-
-use Library\HttpFundamental\Response,
-    Library\Logger;
+use \WebServices\FrontController;
+use \WebServices\FrontControllerAwareInterface;
+use \Library\HttpFundamental\Response;
+use \Library\Logger;
 
 /**
  * @author      Piero Wbmstr <me@e-piwi.fr>
  */
-class ErrorException extends BaseErrorException implements FrontControllerAwareInterface
+class ErrorException
+    extends BaseErrorException
+    implements FrontControllerAwareInterface
 {
 
     /**
@@ -33,7 +33,7 @@ class ErrorException extends BaseErrorException implements FrontControllerAwareI
      * @param int $severity
      * @param string $filename
      * @param int $lineno
-     * @param object $previous \Exception
+     * @param \Exception $previous
      */
     public function __construct($message = '', $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, Exception $previous = null)
     {
@@ -46,6 +46,7 @@ class ErrorException extends BaseErrorException implements FrontControllerAwareI
 
     /**
      * Force the error display
+     *
      * @return void
      */
     public function __toString()
@@ -55,6 +56,7 @@ class ErrorException extends BaseErrorException implements FrontControllerAwareI
 
     /**
      * Force the error display and log it
+     *
      * @return void
      */
     public function render()
@@ -78,8 +80,7 @@ class ErrorException extends BaseErrorException implements FrontControllerAwareI
     }
 
     /**
-     * @param object|null A `WebServices\FrontController` instance
-     * 
+     * @param \WebServices\FrontController $kernel
      * @return self
      */
     public function setFrontController(FrontController $kernel = null)
@@ -89,7 +90,7 @@ class ErrorException extends BaseErrorException implements FrontControllerAwareI
     }
 
     /**
-     * @return object|null The `WebServices\FrontController` instance loaded in the object
+     * @return \WebServices\FrontController
      */
     public function getFrontController()
     {

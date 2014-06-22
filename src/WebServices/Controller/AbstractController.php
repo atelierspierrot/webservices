@@ -8,8 +8,8 @@
  */
 namespace WebServices\Controller;
 
-use WebServices\FrontController,
-    WebServices\AbstractFrontControllerAware;
+use \WebServices\FrontController;
+use \WebServices\AbstractFrontControllerAware;
 
 /**
  * Any package or custom controller must extend this basic class
@@ -25,7 +25,8 @@ use WebServices\FrontController,
  * 
  * @author      Piero Wbmstr <me@e-piwi.fr>
  */
-abstract class AbstractController extends AbstractFrontControllerAware
+abstract class AbstractController
+    extends AbstractFrontControllerAware
 {
 
     /**
@@ -34,17 +35,17 @@ abstract class AbstractController extends AbstractFrontControllerAware
      * File can be named with extension '.md' or '.md.php' to be parsed by the
      * [Markdown Extended](http://github.com/atelierspierrot/markdown-extended) parser.
      *
-     * File can be named with final extension '.php' to be compiled by PHP knowning that
-     * a set of environement variables are exported as PHP properties.
+     * File can be named with final extension '.php' to be compiled by PHP knowing that
+     * a set of environment variables are exported as PHP properties.
      * See `WebServices\FrontController::parseUsageFilepath()` method.
      *
      * @var null|string
-     * @see WebServices\FrontController::parseUsageFilepath()
+     * @see \WebServices\FrontController::parseUsageFilepath()
      */
     public $usage_filepath = null;
 
     /**
-     * @param object WebServices\FrontController
+     * @param \WebServices\FrontController $kernel
      */
     public function __construct(FrontController $kernel)
     {
