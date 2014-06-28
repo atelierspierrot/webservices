@@ -33,7 +33,7 @@ abstract class AbstractController
      * Path of a file containing the "usage" info of the webservice controller
      *
      * File can be named with extension '.md' or '.md.php' to be parsed by the
-     * [Markdown Extended](http://github.com/atelierspierrot/markdown-extended) parser.
+     * [Markdown Extended](http://github.com/piwi/markdown-extended) parser.
      *
      * File can be named with final extension '.php' to be compiled by PHP knowing that
      * a set of environment variables are exported as PHP properties.

@@ -18,7 +18,7 @@
         "php": ">=5.3.0",
         "atelierspierrot/patterns": "1.*",
         "atelierspierrot/library": "1.*",
-        "atelierspierrot/markdown-extended": "dev-master",
+        "piwi/markdown-extended": "dev-master",
         "psr/log": "dev-master"
     },
     "require-dev": {
