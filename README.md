@@ -146,7 +146,7 @@ For instance, consider a custom "MyController" controller with methods "indexAct
 
 Each controller can propose a "usage" string information defining the `$usage_filepath` property
 on the absolute accessible path of a usage file. The content can be parsed by the 
-[Markdown Extended](http://github.com/atelierspierrot/markdown-extended) parser if it is
+[Markdown Extended](http://github.com/piwi/markdown-extended) parser if it is
 named with a `.md` extension.
 
 You can write your usage contents in PHP as in this case, the current configuration settings
