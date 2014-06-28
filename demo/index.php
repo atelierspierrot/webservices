@@ -136,7 +136,7 @@ $webservice_domain = str_replace('demo', 'www', \Library\Helper\Url::getRequestU
     </ul>
     
     <h3>Test of "usage" call</h3>
-    <p>The "usage" method always returns, if available, a presentation of the webservice in plain HTML, generated from <a href="http://github.com/atelierspierrot/markdown-extended">Markdown Extended</a> syntax.</p>
+    <p>The "usage" method always returns, if available, a presentation of the webservice in plain HTML, generated from <a href="http://github.com/piwi/markdown-extended">Markdown Extended</a> syntax.</p>
     <ul>
         <li><a href="<?php echo $webservice_domain; ?>?action=usage">test of test controller "usage"</a></li>
     </ul>
