@@ -2,15 +2,12 @@
 #
 # Common ".gitignore" of Les Ateliers Pierrot's packages
 #
-# Copyleft (c) 2013-2014 Pierre Cassat and contributors
+# Copyleft (ↄ) 2013-2015 Pierre Cassat and contributors
 # <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
 # License GPL-3.0 <http://www.opensource.org/licenses/gpl-3.0.html>
 # Sources <http://github.com/atelierspierrot/atelierspierrot/common/gitignore.txt>
 #
 ########################################################################################
-
-### Hack to allow keeping an empty directory
-!.gitkeep
 
 ### OS & software files
 .DS_Store
@@ -62,3 +59,6 @@ src.*/*
 
 # app specific files
 var/*
+
+### Hack to allow keeping an empty directory
+!.gitkeep
