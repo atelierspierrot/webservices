@@ -1,119 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Classes | </title>
-                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-                            </head>
-        <body id="overview">
-            <div class="header">
-        <ul>
-            <li><a href="classes.html">Classes</a></li>
-                            <li><a href="namespaces.html">Namespaces</a></li>
-                        <li><a href="interfaces.html">Interfaces</a></li>
-            <li><a href="traits.html">Traits</a></li>
-            <li><a href="doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>All Classes | Web Services</title>
 
-        <div id="title"></div>
+            <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="css/sami.css">
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/typeahead.min.js"></script>
+        <script src="sami.js"></script>
+    
+    
+    </head>
 
-            <h1>Classes</h1>
+    <body id="classes" data-name="" data-root-path="">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <table>
-                    <tr>
-                <td>
-                                        <a href="WebServices/AbstractFrontControllerAware.html" target="main"><abbr title="WebServices\AbstractFrontControllerAware">WebServices\AbstractFrontControllerAware</abbr></a>
-                                    </td>
-                <td>
-                    This class designs an object depending on the <code>WebServices\FrontController</code> object  Keep in mind that the FrontController instance in the object is stored in the <code>$kernel</code> property.
-                </td>
-            </tr>
-                    <tr>
-                <td>
-                                        <a href="WebServices/BadRequestException.html" target="main"><abbr title="WebServices\BadRequestException">WebServices\BadRequestException</abbr></a>
-                                    </td>
-                <td>
-                    
 
-                </td>
-            </tr>
-                    <tr>
-                <td>
-                                        <a href="WebServices/Controller/AbstractController.html" target="main"><abbr title="WebServices\Controller\AbstractController">WebServices\Controller\AbstractController</abbr></a>
-                                    </td>
-                <td>
-                    Any package or custom controller must extend this basic class  It defines the global <code>FrontController</code> you can access in any controller's method with <code>$this-&gt;kernel</code> or <code>$this-&gt;getFrontController()</code>.
-                </td>
-            </tr>
-                    <tr>
-                <td>
-                                        <a href="WebServices/Controller/DefaultController.html" target="main"><abbr title="WebServices\Controller\DefaultController">WebServices\Controller\DefaultController</abbr></a>
-                                    </td>
-                <td>
-                    
+                <div id="api-tree"></div>
 
-                </td>
-            </tr>
-                    <tr>
-                <td>
-                                        <a href="WebServices/ErrorException.html" target="main"><abbr title="WebServices\ErrorException">WebServices\ErrorException</abbr></a>
-                                    </td>
-                <td>
-                    
-
-                </td>
-            </tr>
-                    <tr>
-                <td>
-                                        <a href="WebServices/Exception.html" target="main"><abbr title="WebServices\Exception">WebServices\Exception</abbr></a>
-                                    </td>
-                <td>
-                    
-
-                </td>
-            </tr>
-                    <tr>
-                <td>
-                                        <a href="WebServices/FrontController.html" target="main"><abbr title="WebServices\FrontController">WebServices\FrontController</abbr></a>
-                                    </td>
-                <td>
-                    
-
-                </td>
-            </tr>
-                    <tr>
-                <td>
-                    <em>                    <a href="WebServices/FrontControllerAwareInterface.html" target="main"><abbr title="WebServices\FrontControllerAwareInterface">WebServices\FrontControllerAwareInterface</abbr></a>
-                    </em>                </td>
-                <td>
-                    This interface should be implemented by any object depending on the <code>\WebServices\FrontController</code> object
-                </td>
-            </tr>
-                    <tr>
-                <td>
-                                        <a href="WebServices/NotFoundException.html" target="main"><abbr title="WebServices\NotFoundException">WebServices\NotFoundException</abbr></a>
-                                    </td>
-                <td>
-                    
-
-                </td>
-            </tr>
-                    <tr>
-                <td>
-                                        <a href="WebServices/TreatmentException.html" target="main"><abbr title="WebServices\TreatmentException">WebServices\TreatmentException</abbr></a>
-                                    </td>
-                <td>
-                    
-
-                </td>
-            </tr>
-            </table>
         </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Web Services</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="classes.html">Classes</a></li>
+                                            <li><a href="namespaces.html">Namespaces</a></li>
+                                        <li><a href="interfaces.html">Interfaces</a></li>
+                    <li><a href="traits.html">Traits</a></li>
+                    <li><a href="doc-index.html">Index</a></li>
+                    <li><a href="search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div id="page-content">
+                    <div class="page-header">
+        <h1>Classes</h1>
+    </div>
+
+    <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="WebServices/AbstractFrontControllerAware.html"><abbr title="WebServices\AbstractFrontControllerAware">WebServices\AbstractFrontControllerAware</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    This class designs an object depending on the <code>WebServices\FrontController</code> object
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="WebServices/BadRequestException.html"><abbr title="WebServices\BadRequestException">WebServices\BadRequestException</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    
+
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="WebServices/Controller/AbstractController.html"><abbr title="WebServices\Controller\AbstractController">WebServices\Controller\AbstractController</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    Any package or custom controller must extend this basic class
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="WebServices/Controller/DefaultController.html"><abbr title="WebServices\Controller\DefaultController">WebServices\Controller\DefaultController</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    
+
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="WebServices/ErrorException.html"><abbr title="WebServices\ErrorException">WebServices\ErrorException</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    
+
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="WebServices/Exception.html"><abbr title="WebServices\Exception">WebServices\Exception</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    
+
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="WebServices/FrontController.html"><abbr title="WebServices\FrontController">WebServices\FrontController</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    
+
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <em><a href="WebServices/FrontControllerAwareInterface.html"><abbr title="WebServices\FrontControllerAwareInterface">WebServices\FrontControllerAwareInterface</abbr></a></em>
+                                    </div>
+                <div class="col-md-6">
+                    This interface should be implemented by any object depending on the <code>\WebServices\FrontController</code> object
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="WebServices/NotFoundException.html"><abbr title="WebServices\NotFoundException">WebServices\NotFoundException</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    
+
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="WebServices/TreatmentException.html"><abbr title="WebServices\TreatmentException">WebServices\TreatmentException</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    
+
+                </div>
+            </div>
+            </div>
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>

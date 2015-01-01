@@ -1,109 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>WebServices\Controller\AbstractController | </title>
-                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../../classes.html">Classes</a></li>
-                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                        <li><a href="../../interfaces.html">Interfaces</a></li>
-            <li><a href="../../traits.html">Traits</a></li>
-            <li><a href="../../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>WebServices\Controller\AbstractController | Web Services</title>
 
-        <div id="title"></div>
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+    
+    
+    </head>
 
-            <div class="type">Class</div>
-    <h1><a href="../../WebServices/Controller.html">WebServices\Controller</a>\AbstractController</h1>
+    <body id="class" data-name="class:WebServices_Controller_AbstractController" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>abstract     class
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Web Services</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../../WebServices.html">WebServices</a></li>
+                                        <li><a href="../../WebServices/Controller.html">Controller</a></li>
+    
+                <li>AbstractController</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>AbstractController</h1>
+    </div>
+
+    <p>abstract     class
     <strong>AbstractController</strong>        extends <a href="../../WebServices/AbstractFrontControllerAware.html"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a></p>
 
             <div class="description">
-            <p>Any package or custom controller must extend this basic class  It defines the global <code>FrontController</code> you can access in any controller's method with <code>$this-&gt;kernel</code> or <code>$this-&gt;getFrontController()</code>.</p>
-            <p>The magic constructor of this mother class will call any <code>init()</code> protected method defined
+            <p>Any package or custom controller must extend this basic class</p>            <p>It defines the global <code>FrontController</code> you can access in any controller's method
+with <code>$this-&gt;kernel</code> or <code>$this-&gt;getFrontController()</code>.</p>
+
+<p>The magic constructor of this mother class will call any <code>init()</code> protected method defined
 in the children. You can use this method as a children constructor.</p>
 
 <p>You can define an object <code>$usage_filepath</code> variable on the absolute path of a usage info
-to be displayed using the <code>action=usage</code> call.</p>
-        </div>
+to be displayed using the <code>action=usage</code> call.</p>        </div>
+    
     
     
             <h2>Properties</h2>
 
-            <table>
+            <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_usage_filepath">
-                                                            null|string
+                                                                                null|string
                 </td>
                 <td>$usage_filepath</td>
                 <td class="last">Path of a file containing the "usage" info of the webservice controller</td>
+                <td></td>
             </tr>
             </table>
 
     
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
                     <a href="../../WebServices/AbstractFrontControllerAware.html"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_setFrontController">setFrontController</a>(<a href="../../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a> $kernel = null)
-                    <p>
-</p>
-                </td>
-                <td><small>from&nbsp;<a href="../../WebServices/AbstractFrontControllerAware.html#method_setFrontController"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a></small></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../WebServices/AbstractFrontControllerAware.html#method_setFrontController"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <a href="../../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getFrontController">getFrontController</a>()
-                    <p>
-</p>
-                </td>
-                <td><small>from&nbsp;<a href="../../WebServices/AbstractFrontControllerAware.html#method_getFrontController"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a></small></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../WebServices/AbstractFrontControllerAware.html#method_getFrontController"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method___construct">__construct</a>(<a href="../../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a> $kernel)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method_setFrontController">
-        <div class="location">in <a href="../../WebServices/AbstractFrontControllerAware.html#method_setFrontController"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a> at line 33</div>
-        <code>            public            <a href="../../WebServices/AbstractFrontControllerAware.html"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a>
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_setFrontController">
+        <div class="location">in <a href="../../WebServices/AbstractFrontControllerAware.html#method_setFrontController"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a> at line 47</div>
+        <code>                    <a href="../../WebServices/AbstractFrontControllerAware.html"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a>
     <strong>setFrontController</strong>(<a href="../../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a> $kernel = null)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td><a href="../../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a></td>
                 <td>$kernel</td>
@@ -115,7 +162,7 @@ to be displayed using the <code>action=usage</code> call.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><a href="../../WebServices/AbstractFrontControllerAware.html"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a></td>
             <td>
@@ -128,21 +175,19 @@ to be displayed using the <code>action=usage</code> call.</p>
                     </div>
     </div>
 
-                <h3 id="method_getFrontController">
-        <div class="location">in <a href="../../WebServices/AbstractFrontControllerAware.html#method_getFrontController"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a> at line 42</div>
-        <code>            public            <a href="../../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFrontController">
+        <div class="location">in <a href="../../WebServices/AbstractFrontControllerAware.html#method_getFrontController"><abbr title="WebServices\AbstractFrontControllerAware">AbstractFrontControllerAware</abbr></a> at line 56</div>
+        <code>                    <a href="../../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a>
     <strong>getFrontController</strong>()</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><a href="../../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a></td>
             <td>
@@ -155,20 +200,18 @@ to be displayed using the <code>action=usage</code> call.</p>
                     </div>
     </div>
 
-                <h3 id="method___construct">
-        <div class="location">at line 50</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at line 64</div>
+        <code>                    
     <strong>__construct</strong>(<a href="../../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a> $kernel)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td><a href="../../WebServices/FrontController.html"><abbr title="WebServices\FrontController">FrontController</abbr></a></td>
                 <td>$kernel</td>
@@ -183,10 +226,17 @@ to be displayed using the <code>action=usage</code> call.</p>
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>
