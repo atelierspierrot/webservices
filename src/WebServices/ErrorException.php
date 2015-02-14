@@ -23,9 +23,6 @@
 namespace WebServices;
 
 use \ErrorException as BaseErrorException;
-use \WebServices\FrontController;
-use \WebServices\FrontControllerAwareInterface;
-use \Library\HttpFundamental\Response;
 use \Patterns\Commons\HttpStatus;
 use \Library\Logger;
 
@@ -50,7 +47,7 @@ class ErrorException
      * @param int $lineno
      * @param \Exception $previous
      */
-    public function __construct($message = '', $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, Exception $previous = null)
+    public function __construct($message = '', $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, \Exception $previous = null)
     {
         parent::__construct($message, $code, $severity, $filename, $lineno, $previous);
         $this->setFrontController(FrontController::getInstance());
@@ -62,11 +59,12 @@ class ErrorException
     /**
      * Force the error display
      *
-     * @return void
+     * @return string
      */
     public function __toString()
     {
-        return $this->render();        
+        $this->render();
+        return '';
     }
 
     /**
