@@ -27,7 +27,8 @@ use \Patterns\Commons\HttpStatus;
 /**
  * @author      Piero Wbmstr <me@e-piwi.fr>
  */
-class TreatmentException extends \WebServices\Exception
+class TreatmentException
+    extends Exception
 {
 
     /**
@@ -37,7 +38,7 @@ class TreatmentException extends \WebServices\Exception
      * @param int $code The exception code
      * @param \Exception $previous The previous exception if so
      */
-    public function __construct($message = '', $code = 0, Exception $previous = null)
+    public function __construct($message = '', $code = 0, \Exception $previous = null)
     {
         if (empty($message)) $message = 'Treatment error';
         parent::__construct($message, $code, $previous);
