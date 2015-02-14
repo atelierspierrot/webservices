@@ -22,7 +22,7 @@
  */
 namespace WebServices;
 
-use \Library\HttpFundamental\Response;
+use \Patterns\Commons\HttpStatus;
 
 /**
  * @author      Piero Wbmstr <me@e-piwi.fr>
@@ -44,7 +44,7 @@ class BadRequestException extends \WebServices\Exception
         $this->webservices
             ->setStatus(FrontController::STATUS_REQUEST_ERROR)
             ->setMessage($this->getMessage())
-            ->getResponse()->setStatus(Response::STATUS_BAD_REQUEST);
+            ->getResponse()->setStatus(HttpStatus::BAD_REQUEST);
     }
 
 }
