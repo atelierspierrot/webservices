@@ -23,9 +23,7 @@
 namespace WebServices;
 
 use \Exception as BaseException;
-use \WebServices\FrontController;
-use \WebServices\FrontControllerAwareInterface;
-use \Library\HttpFundamental\Response;
+use \Patterns\Commons\HttpStatus;
 use \Library\Logger;
 
 /**
@@ -47,22 +45,24 @@ class Exception
      * @param int $code
      * @param \Exception $previous
      */
-    public function __construct($message = '', $code = 0, Exception $previous = null)
+    public function __construct($message = '', $code = 0, \Exception $previous = null)
     {
         parent::__construct($message, $code, $previous);
         $this->setFrontController(FrontController::getInstance());
         $this->webservices
             ->setStatus(FrontController::STATUS_TREATMENT_ERROR)
-            ->getResponse()->setStatus(Response::STATUS_ERROR);
+            ->getResponse()->setStatus(HttpStatus::ERROR);
     }
 
     /**
      * Force the error display
-     * @return void
+     *
+     * @return string
      */
     public function __toString()
     {
-        return $this->render();        
+        $this->render();
+        return '';
     }
 
     /**

@@ -22,8 +22,6 @@
  */
 namespace WebServices;
 
-use \WebServices\FrontController;
-
 /**
  * This class designs an object depending on the `WebServices\FrontController` object
  * 
@@ -32,7 +30,8 @@ use \WebServices\FrontController;
  * 
  * @author      Piero Wbmstr <me@e-piwi.fr>
  */
-abstract class AbstractFrontControllerAware implements FrontControllerAwareInterface
+abstract class AbstractFrontControllerAware
+    implements FrontControllerAwareInterface
 {
 
     /**

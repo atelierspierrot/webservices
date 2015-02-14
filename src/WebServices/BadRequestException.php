@@ -22,12 +22,13 @@
  */
 namespace WebServices;
 
-use \Library\HttpFundamental\Response;
+use \Patterns\Commons\HttpStatus;
 
 /**
  * @author      Piero Wbmstr <me@e-piwi.fr>
  */
-class BadRequestException extends \WebServices\Exception
+class BadRequestException
+    extends Exception
 {
 
     /**
@@ -37,14 +38,14 @@ class BadRequestException extends \WebServices\Exception
      * @param int           $code       The exception code
      * @param \Exception    $previous   The previous exception if so
      */
-    public function __construct($message = '', $code = 0, Exception $previous = null)
+    public function __construct($message = '', $code = 0, \Exception $previous = null)
     {
         if (empty($message)) $message = 'Bad request';
         parent::__construct($message, $code, $previous);
         $this->webservices
             ->setStatus(FrontController::STATUS_REQUEST_ERROR)
             ->setMessage($this->getMessage())
-            ->getResponse()->setStatus(Response::STATUS_BAD_REQUEST);
+            ->getResponse()->setStatus(HttpStatus::BAD_REQUEST);
     }
 
 }

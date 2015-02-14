@@ -23,13 +23,10 @@
 namespace WebServices\Controller;
 
 use \WebServices\FrontController;
-use \WebServices\Exception;
 use \WebServices\ErrorException;
 use \WebServices\NotFoundException;
 use \WebServices\BadRequestException;
 use \WebServices\TreatmentException;
-use \Library\HttpFundamental\Request;
-use \Library\HttpFundamental\Response;
 
 class DefaultController
     extends AbstractController

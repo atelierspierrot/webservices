@@ -22,12 +22,13 @@
  */
 namespace WebServices;
 
-use \Library\HttpFundamental\Response;
+use \Patterns\Commons\HttpStatus;
 
 /**
  * @author      Piero Wbmstr <me@e-piwi.fr>
  */
-class NotFoundException extends \WebServices\Exception
+class NotFoundException
+    extends Exception
 {
 
     /**
@@ -37,14 +38,14 @@ class NotFoundException extends \WebServices\Exception
      * @param int $code The exception code
      * @param \Exception $previous The previous exception if so
      */
-    public function __construct($message = '', $code = 0, Exception $previous = null)
+    public function __construct($message = '', $code = 0, \Exception $previous = null)
     {
         if (empty($message)) $message = 'Not found';
         parent::__construct($message, $code, $previous);
         $this->webservices
             ->setStatus(FrontController::STATUS_REQUEST_ERROR)
             ->setMessage($this->getMessage())
-            ->getResponse()->setStatus(Response::STATUS_NOT_FOUND);
+            ->getResponse()->setStatus(HttpStatus::NOT_FOUND);
     }
 
 }

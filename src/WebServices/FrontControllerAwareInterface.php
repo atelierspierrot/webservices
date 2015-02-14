@@ -22,8 +22,6 @@
  */
 namespace WebServices;
 
-use \WebServices\FrontController;
-
 /**
  * This interface should be implemented by any object depending on the `\WebServices\FrontController` object
  * 

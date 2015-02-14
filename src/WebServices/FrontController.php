@@ -29,6 +29,7 @@ use \Library\Helper\Directory as DirectoryHelper;
 use \Library\Logger;
 use \Library\HttpFundamental\Request;
 use \Library\HttpFundamental\Response;
+use \Patterns\Commons\HttpStatus;
 
 /**
  * 
@@ -264,7 +265,7 @@ exit('yo');
             );
         }
         if ($this->getResponse()->getStatus()===null) {
-            $this->getResponse()->setStatus(Response::STATUS_OK);
+            $this->getResponse()->setStatus(HttpStatus::OK);
         }
         $this->getResponse()->setHeaders($this->headers);
         if ($return) {
