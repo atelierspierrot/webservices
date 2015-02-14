@@ -22,7 +22,7 @@
  */
 namespace WebServices;
 
-use \Library\HttpFundamental\Response;
+use \Patterns\Commons\HttpStatus;
 
 /**
  * @author      Piero Wbmstr <me@e-piwi.fr>
@@ -44,7 +44,7 @@ class TreatmentException extends \WebServices\Exception
         $this->webservices
             ->setStatus(FrontController::STATUS_TREATMENT_ERROR)
             ->setMessage($this->getMessage())
-            ->getResponse()->setStatus(Response::STATUS_UNPROCESSABLE_ENTITY);
+            ->getResponse()->setStatus(HttpStatus::UNPROCESSABLE_ENTITY);
     }
 
 }
