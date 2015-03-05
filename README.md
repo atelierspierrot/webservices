@@ -67,23 +67,24 @@ The `FrontController` is designed to return a status code as an integer followin
 The `WebServices\FrontController::create()` method accepts a third argument to define a set
 of customized options:
 
-    array(
-        // the HTTP accessible temporary files
-        'tmp_directory' => __DIR__.'/tmp',
-        // the HTTP NON-accessible temporary files, must be out of your document root
-        'var_directory' => __DIR__.'/../var',
-        // the log files, must be out of your document root (here in 'var/')
-        'log_directory' => __DIR__.'/../var/logs',
-        // enable full logging
-        'enable_logging' => true,
-        // enable the URL rewriting : "http://.../var/val" = "http://.../?var=val"
-        'enable_url_rewrite' => true,
-        // write your custom controllers here like "route => classname" pairs
-        // then you can call "http://.../?ws=route" to access them
-        'controllers_mapping' => array(
-        ),
-    )
-
+```php
+array(
+    // the HTTP accessible temporary files
+    'tmp_directory' => __DIR__.'/tmp',
+    // the HTTP NON-accessible temporary files, must be out of your document root
+    'var_directory' => __DIR__.'/../var',
+    // the log files, must be out of your document root (here in 'var/')
+    'log_directory' => __DIR__.'/../var/logs',
+    // enable full logging
+    'enable_logging' => true,
+    // enable the URL rewriting : "http://.../var/val" = "http://.../?var=val"
+    'enable_url_rewrite' => true,
+    // write your custom controllers here like "route => classname" pairs
+    // then you can call "http://.../?ws=route" to access them
+    'controllers_mapping' => array(
+    ),
+)
+```
 
 ### Rewritting
 
@@ -201,14 +202,14 @@ The latest version of this documentation is available online at <http://docs.ate
 
 >    http://github.com/atelierspierrot/webservices
 
->    Copyleft (ↄ) 2013-2015 Pierre Cassat and contributors
+>    Copyright (c) 2013-2015 Pierre Cassat and contributors
 
->    Licensed under the GPL Version 3 license.
+>    Licensed under the Apache 2.0 license.
 
->    http://opensource.org/licenses/GPL-3.0
+>    http://www.apache.org/licenses/LICENSE-2.0
 
 >    ----
 
 >    Les Ateliers Pierrot - Paris, France
 
->    <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
+>    <http://www.ateliers-pierrot.fr/> - <contact@ateliers-pierrot.fr>
