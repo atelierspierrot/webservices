@@ -1,7 +1,7 @@
 WebServices Engine
 ===================
 
-[![documentation](http://img.ateliers-pierrot-static.fr/readthe-doc.png)](http://docs.ateliers-pierrot.fr/webservices/)
+[![documentation](http://img.ateliers-pierrot-static.fr/read-the-doc.svg)](http://docs.ateliers-pierrot.fr/webservices/)
 A PHP engine to manage web-services easily.
 
 
