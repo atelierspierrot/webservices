@@ -24,7 +24,7 @@ namespace WebServices;
 use \Patterns\Commons\HttpStatus;
 
 /**
- * @author      Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class BadRequestException
     extends Exception

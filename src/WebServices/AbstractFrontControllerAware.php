@@ -27,7 +27,7 @@ namespace WebServices;
  * Keep in mind that the FrontController instance in the object is stored in the `$kernel`
  * property.
  * 
- * @author      Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 abstract class AbstractFrontControllerAware
     implements FrontControllerAwareInterface

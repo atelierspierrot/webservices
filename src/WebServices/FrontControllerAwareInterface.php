@@ -24,7 +24,7 @@ namespace WebServices;
 /**
  * This interface should be implemented by any object depending on the `\WebServices\FrontController` object
  * 
- * @author      Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 interface FrontControllerAwareInterface
 {
