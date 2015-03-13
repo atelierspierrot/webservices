@@ -21,8 +21,8 @@
         "psr/log": "dev-master"
     },
     "require-dev": {
-        "sami/sami": "dev-master",
-        "phpmd/phpmd" : "1.4.*"
+        "sami/sami": "@stable",
+        "phpmd/phpmd" : "@stable"
     },
     "autoload": { "psr-0": {"WebServices": "src"} },
     "extra": {

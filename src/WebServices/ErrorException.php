@@ -26,7 +26,7 @@ use \Patterns\Commons\HttpStatus;
 use \Library\Logger;
 
 /**
- * @author      Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class ErrorException
     extends BaseErrorException

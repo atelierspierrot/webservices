@@ -36,7 +36,7 @@ use \WebServices\AbstractFrontControllerAware;
  * You can define an object `$usage_filepath` variable on the absolute path of a usage info
  * to be displayed using the `action=usage` call.
  * 
- * @author      Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 abstract class AbstractController
     extends AbstractFrontControllerAware
