@@ -264,11 +264,11 @@ class SplClassLoader
      */
     public function classFileExists($classFile)
     {
-        if ( file_exists($classFile) ) {
+        if (file_exists($classFile)) {
             return true;
         }
-        foreach (explode(PATH_SEPARATOR,get_include_path()) as $path) {
-            if ( file_exists($path) && file_exists($path.DIRECTORY_SEPARATOR.$classFile) ) {
+        foreach (explode(PATH_SEPARATOR, get_include_path()) as $path) {
+            if (file_exists($path) && file_exists($path.DIRECTORY_SEPARATOR.$classFile)) {
                 return true;
             }
         }
@@ -293,5 +293,4 @@ class SplClassLoader
             }
         }
     }
-
 }

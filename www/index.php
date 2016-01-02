@@ -2,7 +2,7 @@
 /**
  * This file is part of the WebServices package.
  *
- * Copyright (c) 2013-2015 Pierre Cassat <me@e-piwi.fr> and contributors
+ * Copyright (c) 2013-2016 Pierre Cassat <me@e-piwi.fr> and contributors
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@
  */
 //@ini_set('display_errors','1'); @error_reporting(E_ALL);
 //@ini_set('display_errors','1'); @error_reporting(E_ALL & ~E_STRICT);
-@ini_set('display_errors','1'); @error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
+@ini_set('display_errors', '1'); @error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
 
 /**
  * Set a default timezone to avoid PHP5 warnings
@@ -45,8 +45,8 @@ if (file_exists($a = __DIR__.'/../../../autoload.php')) {
 
 // else error, classes can't be found
 } else {
-    die( json_encode("You need to run Composer on the project to build dependencies and auto-loading"
-        ." (see: http://getcomposer.org/doc/00-intro.md#using-composer)!") );
+    die(json_encode("You need to run Composer on the project to build dependencies and auto-loading"
+        ." (see: http://getcomposer.org/doc/00-intro.md#using-composer)!"));
 }
 
 // user options
@@ -73,6 +73,4 @@ $options = array(
         ->distribute();
 
 // or exit
-exit( json_encode('ERROR IN RENDERING !') );
-
-// Endfile
+exit(json_encode('ERROR IN RENDERING !'));
