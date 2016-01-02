@@ -2,7 +2,7 @@
 /**
  * This file is part of the WebServices package.
  *
- * Copyright (c) 2013-2015 Pierre Cassat <me@e-piwi.fr> and contributors
+ * Copyright (c) 2013-2016 Pierre Cassat <me@e-piwi.fr> and contributors
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ class FrontController
      * Default messages for result status as `status=>info` pairs
      * @static array
      */
-    static $default_messages = array(
+    public static $default_messages = array(
         -1  =>'Internal server error',
         0   =>'OK',
         1   =>'Unexpected result',
@@ -133,17 +133,17 @@ class FrontController
         }
         if (!array_key_exists('tmp_directory', $user_options)) {
             $ini_path = sys_get_temp_dir();
-            $user_options['tmp_directory'] = 
+            $user_options['tmp_directory'] =
                 !empty($ini_path) ? $ini_path : __DIR__.'/../tmp';
         }
         if (!array_key_exists('var_directory', $user_options)) {
             $ini_path = sys_get_temp_dir();
-            $user_options['var_directory'] = 
+            $user_options['var_directory'] =
                 !empty($ini_path) ? $ini_path : __DIR__.'/../var';
         }
         if (!array_key_exists('log_directory', $user_options)) {
             $ini_path = ini_get('error_log');
-            $user_options['log_directory'] = 
+            $user_options['log_directory'] =
                 !empty($ini_path) ? $ini_path : __DIR__.'/../tmp/logs';
         }
         if (!array_key_exists('error_log_mask', $user_options)) {
@@ -176,8 +176,12 @@ class FrontController
         $this->setLogger(
             new Logger($this->getLoggerOptions())
         );
-        if (!is_null($request)) $this->setRequest($request);
-        if (!is_null($response)) $this->setResponse($response);
+        if (!is_null($request)) {
+            $this->setRequest($request);
+        }
+        if (!is_null($response)) {
+            $this->setResponse($response);
+        }
         $this->getResponse()->setContentType('json');
         if ($this->getOption('enable_url_rewrite')===true) {
             $this->getRequest()
@@ -217,7 +221,9 @@ exit('yo');
     public static function log($message, array $context = array(), $level = Logger::INFO, $logname = null)
     {
         $_this = self::getInstance();
-        if ($_this->getOption('enable_logging')===false) return;
+        if ($_this->getOption('enable_logging')===false) {
+            return;
+        }
         $default_context = array(
             'url' => $_this->getRequest()->getUrl()
         );
@@ -236,10 +242,14 @@ exit('yo');
     {
         $this->log('[BEGIN] Handling request {url}');
         $ctrl = $this->getRequest()->getPostOrGet('ws');
-        if (empty($ctrl)) $ctrl = 'DefaultController';
+        if (empty($ctrl)) {
+            $ctrl = 'DefaultController';
+        }
         $this->callController($ctrl);
         $act = $this->getRequest()->getPostOrGet('action');
-        if (empty($act)) $act = 'index';
+        if (empty($act)) {
+            $act = 'index';
+        }
         if ($act==='usage') {
             $this->getControllerUsage();
         } else {
@@ -252,14 +262,14 @@ exit('yo');
     /**
      * Displays the request result
      */
-    public function display($return = false) 
+    public function display($return = false)
     {
         if ($this->getStatus()===null) {
             $this->setStatus(self::STATUS_OK);
         }
         if ($this->getMessage()===null) {
             $this->setMessage(
-                array_key_exists($this->getStatus(), self::$default_messages) ? 
+                array_key_exists($this->getStatus(), self::$default_messages) ?
                     self::$default_messages[$this->getStatus()] : ''
             );
         }
@@ -347,7 +357,6 @@ exit('yo');
             if (substr($file_path, -3)==='.md') {
                 \MarkdownExtended\MarkdownExtended::transformSource($file_path);
                 $ctt = \MarkdownExtended\MarkdownExtended::getFullContent();
-
             } elseif (
                 substr($file_path, -7)==='.md.php' ||
                 substr($file_path, -4)==='.php'
@@ -363,7 +372,6 @@ exit('yo');
                 } else {
                     $ctt = $file_ctt;
                 }
-
             } else {
                 $ctt = @file_get_contents($file_path);
             }
@@ -572,7 +580,4 @@ exit('yo');
     {
         return $this->controller;
     }
-
 }
-
-// Endfile

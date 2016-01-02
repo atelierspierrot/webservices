@@ -2,7 +2,7 @@
 /**
  * This file is part of the WebServices package.
  *
- * Copyright (c) 2013-2015 Pierre Cassat <me@e-piwi.fr> and contributors
+ * Copyright (c) 2013-2016 Pierre Cassat <me@e-piwi.fr> and contributors
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ class DefaultController
 
     public function indexAction()
     {
-//        fopen(); // test the internal error handler
+        //        fopen(); // test the internal error handler
         $this->kernel
             ->setStatus(FrontController::STATUS_OK)
             ->setMessage('Nothing to do');
@@ -110,7 +110,4 @@ class DefaultController
         // something went really wrong ...
         throw new ErrorException('Test of internal server error');
     }
-
 }
-
-// Endfile
